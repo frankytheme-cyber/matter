@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/gallery",
+  "title": "Gallery",
+  "category": "matter",
+  "description": "Blocco Gallery generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "I nostri spazi"
+    },
+    "title": {
+      "type": "string",
+      "default": "Ambienti pensati per ogni tipo di allenamento"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Pesi liberi, area cardio, zona funzionale e macchinari isotonici.\n              Spazi puliti, ordinati e organizzati per chi si allena con costanza."
+    },
+    "img-1": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/949132/pexels-photo-949132.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Area pesi liberi con bilancieri e rastrelliere",
+        "id": 0
+      }
+    },
+    "label-1": {
+      "type": "string",
+      "default": "Pesi liberi"
+    },
+    "img-2": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Zona cardio con tapis roulant ed ellittiche",
+        "id": 0
+      }
+    },
+    "label-2": {
+      "type": "string",
+      "default": "Zona cardio"
+    },
+    "img-3": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Area funzionale con kettlebell e attrezzi a corpo libero",
+        "id": 0
+      }
+    },
+    "label-3": {
+      "type": "string",
+      "default": "Area funzionale"
+    },
+    "img-4": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/3757957/pexels-photo-3757957.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Macchinari isotonici per allenamento muscolare",
+        "id": 0
+      }
+    },
+    "label-4": {
+      "type": "string",
+      "default": "Macchinari isotonici"
+    },
+    "spazi-lightbox-close": {
+      "type": "string",
+      "default": "<span class=\"material-symbols-rounded\">close</span>"
+    },
+    "spazi-lightbox-prev": {
+      "type": "string",
+      "default": "<span class=\"material-symbols-rounded\">chevron_left</span>"
+    },
+    "spazi-lightbox-next": {
+      "type": "string",
+      "default": "<span class=\"material-symbols-rounded\">chevron_right</span>"
+    }
+  }
+}

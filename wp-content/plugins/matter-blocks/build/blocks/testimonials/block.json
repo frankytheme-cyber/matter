@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/testimonials",
+  "title": "Testimonials",
+  "category": "matter",
+  "description": "Blocco Testimonials generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Recensioni dei soci"
+    },
+    "title": {
+      "type": "string",
+      "default": "Cosa dicono di noi"
+    }
+  }
+}

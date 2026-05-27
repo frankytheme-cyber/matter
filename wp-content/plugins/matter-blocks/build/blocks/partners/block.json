@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/partners",
+  "title": "Partners",
+  "category": "matter",
+  "description": "Blocco Partners generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "I nostri partner"
+    },
+    "title": {
+      "type": "string",
+      "default": "Una rete di professionisti per il tuo benessere"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Collaboriamo con specialisti esterni che integrano il lavoro in\n              sala. Quando serve un parere fisioterapico o nutrizionale, sai a\n              chi rivolgerti."
+    },
+    "card1-tag": {
+      "type": "string",
+      "default": "Fisioterapista"
+    },
+    "card1-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "alt": "Dott. Marco Bianchi, fisioterapista partner",
+        "id": 0
+      }
+    },
+    "card1-name": {
+      "type": "string",
+      "default": "Dott. Marco Bianchi"
+    },
+    "card2-tag": {
+      "type": "string",
+      "default": "Dietologo / Nutrizionista"
+    },
+    "card2-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/8844393/pexels-photo-8844393.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "alt": "Dott.ssa Laura Rossi, dietologa nutrizionista partner",
+        "id": 0
+      }
+    },
+    "card2-name": {
+      "type": "string",
+      "default": "Dott.ssa Laura Rossi"
+    }
+  }
+}

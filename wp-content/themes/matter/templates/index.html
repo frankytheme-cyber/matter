@@ -1,0 +1,69 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group">
+
+<!-- wp:group {"tagName":"section","className":"section","layout":{"type":"default"}} -->
+<section class="wp-block-group section">
+
+<!-- wp:group {"className":"section-head","layout":{"type":"constrained","contentSize":"832px"}} -->
+<div class="wp-block-group section-head">
+<!-- wp:paragraph {"className":"eyebrow"} -->
+<p class="eyebrow">Blog</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":1,"className":"section-title"} -->
+<h1 class="section-title">Dal nostro blog</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"section-lead"} -->
+<p class="section-lead">Consigli di allenamento, novità dalle sedi e approfondimenti dal team Matter of Fitness.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"constrained","contentSize":"1100px"}} -->
+<div class="wp-block-group">
+
+<!-- wp:query {"queryId":1,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"type":"default"}} -->
+<div class="wp-block-query">
+
+<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","style":{"border":{"radius":"16px"}}} /-->
+
+<!-- wp:post-date {"style":{"typography":{"fontSize":"0.8rem"}},"textColor":"muted"} /-->
+
+<!-- wp:post-title {"isLink":true,"level":2,"style":{"typography":{"fontSize":"1.3rem","lineHeight":"1.25"}}} /-->
+
+<!-- wp:post-excerpt {"moreText":"Leggi"} /-->
+<!-- /wp:post-template -->
+
+<!-- wp:spacer {"height":"48px"} -->
+<div style="height:48px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Nessun articolo pubblicato per ora. Torna presto!</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+
+</div>
+<!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->
+
+</section>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

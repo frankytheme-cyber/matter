@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/intro",
+  "title": "Intro",
+  "category": "matter",
+  "description": "Blocco Intro generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "body": {
+      "type": "string",
+      "default": "Matter nasce da un'idea precisa: una palestra dovrebbe essere un\n            luogo dove ci si conosce per nome, dove gli ambienti sono ordinati e\n            dove nessuno resta senza una risposta quando ne ha bisogno."
+    },
+    "cta": {
+      "type": "object",
+      "default": {
+        "url": "/chi-siamo/",
+        "label": "La nostra storia",
+        "target": ""
+      }
+    }
+  }
+}

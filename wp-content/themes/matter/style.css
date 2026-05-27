@@ -1,0 +1,22 @@
+/*
+Theme Name: Matter of Fitness
+Theme URI: https://example.com/themes/matter
+Author: Fornace Studio
+Author URI: https://example.com
+Description: Matter of Fitness — block theme generato da html-to-theme a partire da HTML annotato.
+Version: 0.1.0
+Requires at least: 6.9
+Tested up to: 6.9
+Requires PHP: 7.2.24
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: matter
+Tags: block-theme, full-site-editing, custom-blocks
+*/
+
+/*
+ * Questo file esiste principalmente per il theme header WordPress.
+ * Gli stili del tema sono definiti in theme.json (globalmente) e nei blocchi
+ * del plugin companion "matter-blocks". Aggiungi qui solo regole globali
+ * che non possono vivere in theme.json.
+ */

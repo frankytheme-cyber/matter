@@ -1,0 +1,86 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/services",
+    "title": "Services",
+    "category": "matter",
+    "description": "Blocco Services generato da html-to-blocks.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Cosa offriamo"
+        },
+        "title": {
+            "type": "string",
+            "default": "Le nostre proposte di allenamento"
+        },
+        "lead": {
+            "type": "string",
+            "default": "Lavoro tecnico individuale, percorsi specializzati e check-in\n              periodici per misurare i progressi e correggere la rotta quando\n              serve."
+        },
+        "card1-img": {
+            "type": "object",
+            "default": {
+                "url": "https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "",
+                "id": 0
+            }
+        },
+        "card1-kicker": {
+            "type": "string",
+            "default": "1:1 dedicato"
+        },
+        "card1-title": {
+            "type": "string",
+            "default": "Personal Training"
+        },
+        "card1-desc": {
+            "type": "string",
+            "default": "Sessioni individuali con un trainer dedicato. Valutazione\n                  iniziale, programma periodizzato e aggiornamenti ogni quattro\n                  o sei settimane."
+        },
+        "card1-cta": {
+            "type": "object",
+            "default": {
+                "url": "/servizi/personal-training/",
+                "label": "Vedi Personal Training",
+                "target": ""
+            }
+        },
+        "card2-img": {
+            "type": "object",
+            "default": {
+                "url": "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "",
+                "id": 0
+            }
+        },
+        "card2-kicker": {
+            "type": "string",
+            "default": "Partner esterni"
+        },
+        "card2-title": {
+            "type": "string",
+            "default": "Rete di professionisti"
+        },
+        "card2-desc": {
+            "type": "string",
+            "default": "Collaboriamo con fisioterapisti e nutrizionisti esterni che\n                  completano il lavoro in sala con recupero, prevenzione e\n                  consulenza alimentare."
+        },
+        "card2-cta": {
+            "type": "object",
+            "default": {
+                "url": "/servizi/",
+                "label": "Tutti i servizi",
+                "target": ""
+            }
+        }
+    }
+}

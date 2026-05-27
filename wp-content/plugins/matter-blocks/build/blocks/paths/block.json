@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/paths",
+  "title": "Paths",
+  "category": "matter",
+  "description": "Blocco Paths generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Programmazione"
+    },
+    "title": {
+      "type": "string",
+      "default": "Percorsi specializzati"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Programmi su misura per obiettivi precisi: postura, post parto,\n              condizionamento e preparazione sportiva."
+    },
+    "row1-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/4720248/pexels-photo-4720248.jpeg?auto=compress&cs=tinysrgb&w=900",
+        "alt": "Valutazione e programmazione in sala",
+        "id": 0
+      }
+    },
+    "row1-kicker": {
+      "type": "string",
+      "default": "Valutazione"
+    },
+    "row1-title": {
+      "type": "string",
+      "default": "Si parte da come stai oggi"
+    },
+    "row1-desc": {
+      "type": "string",
+      "default": "Colloquio, anamnesi e test tecnici definiscono il punto di partenza.\n                  Il programma si aggiorna con check-in ogni quattro o sei settimane."
+    },
+    "row2-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=900",
+        "alt": "Allenamento guidato in sala",
+        "id": 0
+      }
+    },
+    "row2-kicker": {
+      "type": "string",
+      "default": "Percorsi"
+    },
+    "row2-title": {
+      "type": "string",
+      "default": "Quattro linee di lavoro"
+    },
+    "row2-desc": {
+      "type": "string",
+      "default": "Posturale, post parto, condizionamento e pre-agonistico. Se serve,\n                  costruiamo un percorso dedicato."
+    },
+    "cta-kicker": {
+      "type": "string",
+      "default": "Approfondimento"
+    },
+    "cta-title": {
+      "type": "string",
+      "default": "Scegli il percorso più adatto a te"
+    },
+    "cta-desc": {
+      "type": "string",
+      "default": "Nella pagina dedicata trovi tutti i percorsi specializzati con obiettivi,\n                modalità di lavoro e indicazioni pratiche per capire da dove partire."
+    },
+    "cta-primary": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/percorsi-specializzati/",
+        "label": "Vedi i percorsi",
+        "target": ""
+      }
+    },
+    "cta-secondary": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/#scrivici",
+        "label": "Parla con lo staff",
+        "target": ""
+      }
+    }
+  }
+}

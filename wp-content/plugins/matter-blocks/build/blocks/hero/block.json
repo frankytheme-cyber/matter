@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/hero",
+  "title": "Hero",
+  "category": "matter",
+  "description": "Blocco Hero generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Una palestra dove si viene per allenarsi e stare bene."
+    },
+    "lead": {
+      "type": "string",
+      "default": "A <a class=\"u-inline-link\" href=\"/sedi/pescantina/\" data-attr=\"ignore\">Settimo di Pescantina</a> e a\n                  <a class=\"u-inline-link\" href=\"/sedi/bovolone/\" data-attr=\"ignore\">Bovolone</a>, in provincia di Verona.\n                  Ambienti curati, attrezzature professionali e uno staff che\n                  conosce ogni socio per nome. Scopri i <a class=\"u-inline-link\" href=\"/servizi/\" data-attr=\"ignore\">servizi in palestra</a>."
+    },
+    "cta-primary": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/pescantina/",
+        "label": "Scegli la Sede",
+        "target": ""
+      }
+    },
+    "cta-secondary": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Contattaci",
+        "target": ""
+      }
+    },
+    "image": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&cs=tinysrgb&w=1800",
+        "alt": "Sala training Matter of Fitness con macchinari professionali e ambiente luminoso",
+        "id": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/site-header",
+  "title": "Site Header",
+  "category": "matter",
+  "description": "Blocco Site Header generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "link": {
+      "type": "object",
+      "default": {
+        "url": "/chi-siamo/",
+        "label": "Chi Siamo",
+        "target": ""
+      }
+    },
+    "link-2": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/",
+        "label": "Servizi Matter",
+        "target": ""
+      }
+    },
+    "link-3": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/personal-training/",
+        "label": "Personal Training",
+        "target": ""
+      }
+    },
+    "link-4": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/percorsi-specializzati/",
+        "label": "Percorsi specializzati",
+        "target": ""
+      }
+    },
+    "link-5": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/",
+        "label": "Panoramica sedi",
+        "target": ""
+      }
+    },
+    "link-6": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/pescantina/",
+        "label": "Settimo di Pescantina",
+        "target": ""
+      }
+    },
+    "link-7": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/bovolone/",
+        "label": "Bovolone",
+        "target": ""
+      }
+    },
+    "link-8": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Contatti",
+        "target": ""
+      }
+    },
+    "link-9": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/#scrivici",
+        "label": "Inizia Ora",
+        "target": ""
+      }
+    },
+    "link-10": {
+      "type": "object",
+      "default": {
+        "url": "/chi-siamo/",
+        "label": "Chi Siamo",
+        "target": ""
+      }
+    },
+    "link-11": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/",
+        "label": "Servizi Matter",
+        "target": ""
+      }
+    },
+    "link-12": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/personal-training/",
+        "label": "Personal Training",
+        "target": ""
+      }
+    },
+    "link-13": {
+      "type": "object",
+      "default": {
+        "url": "/servizi/percorsi-specializzati/",
+        "label": "Percorsi specializzati",
+        "target": ""
+      }
+    },
+    "link-14": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/",
+        "label": "Panoramica sedi",
+        "target": ""
+      }
+    },
+    "link-15": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/pescantina/",
+        "label": "Settimo di Pescantina",
+        "target": ""
+      }
+    },
+    "link-16": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/bovolone/",
+        "label": "Bovolone",
+        "target": ""
+      }
+    },
+    "link-17": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Contatti",
+        "target": ""
+      }
+    },
+    "link-18": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/#scrivici",
+        "label": "Inizia Ora",
+        "target": ""
+      }
+    }
+  }
+}

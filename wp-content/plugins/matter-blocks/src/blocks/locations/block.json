@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/locations",
+    "title": "Locations",
+    "category": "matter",
+    "description": "Blocco Locations generato da html-to-blocks.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Le sedi"
+        },
+        "title": {
+            "type": "string",
+            "default": "Trovaci vicino a te"
+        },
+        "lead": {
+            "type": "string",
+            "default": "Pescantina e Bovolone, entrambe in provincia di Verona. Stessi\n              standard, stessa cura. Apri la scheda di ogni sede per orari,\n              contatti e foto degli ambienti.\n              <a class=\"u-inline-link\" href=\"/sedi/pescantina/\" data-attr=\"ignore\">Scopri la sede di Pescantina</a>"
+        },
+        "card1-tag": {
+            "type": "string",
+            "default": "Verona"
+        },
+        "card1-img": {
+            "type": "object",
+            "default": {
+                "url": "https://images.pexels.com/photos/28080/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Settimo di Pescantina",
+                "id": 0
+            }
+        },
+        "card1-name": {
+            "type": "string",
+            "default": "Settimo di Pescantina"
+        },
+        "card2-tag": {
+            "type": "string",
+            "default": "Verona"
+        },
+        "card2-img": {
+            "type": "object",
+            "default": {
+                "url": "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Bovolone",
+                "id": 0
+            }
+        },
+        "card2-name": {
+            "type": "string",
+            "default": "Bovolone"
+        }
+    }
+}

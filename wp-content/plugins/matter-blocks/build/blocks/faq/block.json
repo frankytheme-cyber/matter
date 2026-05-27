@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/faq",
+  "title": "Faq",
+  "category": "matter",
+  "description": "Blocco Faq generato da html-to-blocks.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "FAQ"
+    },
+    "title": {
+      "type": "string",
+      "default": "Domande frequenti"
+    },
+    "q1": {
+      "type": "string",
+      "default": "Posso fare una prova prima di sottoscrivere l'abbonamento?"
+    },
+    "a1": {
+      "type": "string",
+      "default": "Sì. Organizziamo ingressi prova su appuntamento per farti\n                conoscere la sala, il team e il modo in cui lavoriamo, senza\n                impegno."
+    },
+    "q2": {
+      "type": "string",
+      "default": "La palestra è affollata negli orari di punta?"
+    },
+    "a2": {
+      "type": "string",
+      "default": "Le ore di maggiore affluenza sono di norma il tardo pomeriggio,\n                tra le 18:00 e le 20:00. Mattino presto e prima serata sono i\n                momenti più tranquilli per allenarsi senza attese ai macchinari."
+    },
+    "q3": {
+      "type": "string",
+      "default": "Avete assistenza in sala anche senza personal training?"
+    },
+    "a3": {
+      "type": "string",
+      "default": "Sì. Durante l'orario di apertura è sempre presente un istruttore\n                qualificato in sala, disponibile per chiarimenti tecnici,\n                correzioni sull'esecuzione e consigli sul percorso."
+    },
+    "q4": {
+      "type": "string",
+      "default": "Che ambiente trovo in sala?"
+    },
+    "a4": {
+      "type": "string",
+      "default": "Ambienti puliti e ordinati, con attrezzature recenti e\n                manutenute. Pulizia quotidiana di sale e spogliatoi, gestione\n                attenta degli spazi comuni."
+    }
+  }
+}
