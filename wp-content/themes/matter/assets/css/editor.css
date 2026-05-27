@@ -22,3 +22,14 @@
 	opacity: 1 !important;
 	transform: none !important;
 }
+
+/*
+ * La hero secondaria di pagina (.page-hero-secondary__shell) parte a opacity:0
+ * e viene rivelata da main.js al load tramite la classe .page-ready. Nell'editor
+ * main.js non gira → resterebbe invisibile (testo e immagine). La forziamo
+ * allo stato "rivelato".
+ */
+.page-hero-secondary__shell {
+	opacity: 1 !important;
+	transform: none !important;
+}

@@ -79,6 +79,14 @@ button { font: inherit; color: inherit; cursor: pointer; border: none; backgroun
 /* main e target dello skip link: tabindex=-1 lo rende focusable senza ring visibile */
 main:focus { outline: none; }
 
+/* I blocchi top-level (header / main / footer) si toccano: rimuoviamo il
+   block-gap di default (24px) che WP inserisce tra i figli di .wp-site-blocks,
+   altrimenti compare una fascia di sfondo sopra la breadcrumb/hero e sopra il footer. */
+.wp-site-blocks > * {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /* ========== Breadcrumb (SEO + accessibilità) ========== */
 /* Full-bleed tint come .page-hero-secondary / .section--tint (evita fascia bianca sopra l'hero) */
 .breadcrumb-wrap {
