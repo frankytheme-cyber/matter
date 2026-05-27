@@ -1,0 +1,40 @@
+# ============================================================
+# WordPress project "matter"
+# Versioniamo SOLO il tema custom "matter" e i plugin custom.
+# Tutto il core WordPress, i temi/plugin di default, gli upload
+# e i file con segreti restano fuori dal repository.
+# ============================================================
+
+# 1) Ignora tutto alla radice...
+/*
+
+# 2) ...ma tieni questo file e la cartella wp-content
+!.gitignore
+!/wp-content/
+
+# 3) Dentro wp-content ignora tutto...
+/wp-content/*
+
+# 4) ...tranne le cartelle themes e plugins
+!/wp-content/themes/
+!/wp-content/plugins/
+
+# 5) Tra i temi tieni SOLO "matter" (da creare), ignora i default
+/wp-content/themes/*
+!/wp-content/themes/matter/
+
+# 6) Tra i plugin ignora quelli di default di WordPress;
+#    ogni altro plugin (custom) viene tracciato automaticamente
+/wp-content/plugins/akismet/
+/wp-content/plugins/hello.php
+/wp-content/plugins/index.php
+
+# ============================================================
+# File da ignorare sempre
+# ============================================================
+.DS_Store
+*.log
+wp-config.php
+node_modules/
+vendor/
+*.zip
