@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/about-intro",
+  "title": "About Intro",
+  "category": "matter",
+  "description": "Introduzione testuale: lead in evidenza + corpo su più paragrafi (una riga = un paragrafo). Contenuto impostato per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "lead": {
+      "type": "string",
+      "default": "Frase di apertura in evidenza."
+    },
+    "body": {
+      "type": "string",
+      "default": "Primo paragrafo del corpo del testo.\nSecondo paragrafo del corpo del testo."
+    }
+  }
+}

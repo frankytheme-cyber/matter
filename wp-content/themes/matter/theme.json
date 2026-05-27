@@ -239,5 +239,11 @@
       "area": "footer"
     }
   ],
-  "customTemplates": []
+  "customTemplates": [
+    {
+      "name": "about",
+      "title": "About",
+      "postTypes": [ "page" ]
+    }
+  ]
 }

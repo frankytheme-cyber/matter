@@ -144,3 +144,19 @@ add_filter(
 	10,
 	2
 );
+
+/**
+ * Categoria pattern dedicata, così i pattern del tema sono raggruppati
+ * nell'inseritore a blocchi.
+ */
+add_action(
+	'init',
+	function () {
+		if ( function_exists( 'register_block_pattern_category' ) ) {
+			register_block_pattern_category(
+				'matter',
+				array( 'label' => __( 'Matter of Fitness', 'matter' ) )
+			);
+		}
+	}
+);

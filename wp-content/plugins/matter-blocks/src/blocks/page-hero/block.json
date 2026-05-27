@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/page-hero",
+    "title": "Page Hero",
+    "category": "matter",
+    "description": "Hero secondario di pagina interna: eyebrow, titolo, lead e immagine. Riutilizzabile su ogni pagina, contenuto impostato per istanza.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Sezione"
+        },
+        "title": {
+            "type": "string",
+            "default": "Titolo della pagina"
+        },
+        "lead": {
+            "type": "string",
+            "default": "Breve testo introduttivo che presenta la pagina."
+        },
+        "image": {
+            "type": "object",
+            "default": {
+                "url": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80",
+                "alt": "",
+                "id": 0
+            }
+        }
+    }
+}

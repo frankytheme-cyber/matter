@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/pillars",
+    "title": "Pillars",
+    "category": "matter",
+    "description": "Tre pilastri con kicker, titolo, lead ed elenco puntato (una riga = una voce). Contenuto impostato per istanza.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Sezione"
+        },
+        "title": {
+            "type": "string",
+            "default": "Titolo della sezione"
+        },
+        "lead": {
+            "type": "string",
+            "default": "Breve introduzione alla sezione."
+        },
+        "pillar1-kicker": {
+            "type": "string",
+            "default": "01"
+        },
+        "pillar1-title": {
+            "type": "string",
+            "default": "Titolo del pilastro"
+        },
+        "pillar1-lead": {
+            "type": "string",
+            "default": "Descrizione sintetica del pilastro."
+        },
+        "pillar1-list": {
+            "type": "string",
+            "default": "Primo punto\nSecondo punto\nTerzo punto"
+        },
+        "pillar2-kicker": {
+            "type": "string",
+            "default": "02"
+        },
+        "pillar2-title": {
+            "type": "string",
+            "default": "Titolo del pilastro"
+        },
+        "pillar2-lead": {
+            "type": "string",
+            "default": "Descrizione sintetica del pilastro."
+        },
+        "pillar2-list": {
+            "type": "string",
+            "default": "Primo punto\nSecondo punto\nTerzo punto"
+        },
+        "pillar3-kicker": {
+            "type": "string",
+            "default": "03"
+        },
+        "pillar3-title": {
+            "type": "string",
+            "default": "Titolo del pilastro"
+        },
+        "pillar3-lead": {
+            "type": "string",
+            "default": "Descrizione sintetica del pilastro."
+        },
+        "pillar3-list": {
+            "type": "string",
+            "default": "Primo punto\nSecondo punto\nTerzo punto"
+        }
+    }
+}

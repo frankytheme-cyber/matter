@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/cta",
+  "title": "CTA",
+  "category": "matter",
+  "description": "Banda CTA su fondo scuro: titolo, lead e due pulsanti. Riutilizzabile su ogni pagina, contenuto impostato per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Titolo della call to action"
+    },
+    "lead": {
+      "type": "string",
+      "default": "Testo che invita le persone a compiere un'azione."
+    },
+    "cta-primary": {
+      "type": "object",
+      "default": {
+        "url": "#",
+        "label": "Pulsante primario",
+        "target": ""
+      }
+    },
+    "cta-secondary": {
+      "type": "object",
+      "default": {
+        "url": "#",
+        "label": "Pulsante secondario",
+        "target": ""
+      }
+    }
+  }
+}

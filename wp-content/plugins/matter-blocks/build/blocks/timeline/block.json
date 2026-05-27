@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/timeline",
+  "title": "Timeline",
+  "category": "matter",
+  "description": "Linea del tempo: anno, titolo e testo per ogni tappa. Contenuto impostato per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Sezione"
+    },
+    "title": {
+      "type": "string",
+      "default": "Titolo della sezione"
+    },
+    "item1-year": {
+      "type": "string",
+      "default": "Anno"
+    },
+    "item1-title": {
+      "type": "string",
+      "default": "Titolo della tappa"
+    },
+    "item1-text": {
+      "type": "string",
+      "default": "Descrizione della tappa."
+    },
+    "item2-year": {
+      "type": "string",
+      "default": "Anno"
+    },
+    "item2-title": {
+      "type": "string",
+      "default": "Titolo della tappa"
+    },
+    "item2-text": {
+      "type": "string",
+      "default": "Descrizione della tappa."
+    },
+    "item3-year": {
+      "type": "string",
+      "default": "Anno"
+    },
+    "item3-title": {
+      "type": "string",
+      "default": "Titolo della tappa"
+    },
+    "item3-text": {
+      "type": "string",
+      "default": "Descrizione della tappa."
+    },
+    "item4-year": {
+      "type": "string",
+      "default": "Anno"
+    },
+    "item4-title": {
+      "type": "string",
+      "default": "Titolo della tappa"
+    },
+    "item4-text": {
+      "type": "string",
+      "default": "Descrizione della tappa."
+    }
+  }
+}
