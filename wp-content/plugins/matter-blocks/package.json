@@ -4,6 +4,7 @@
     "private": true,
     "description": "Blocchi Gutenberg generati da html-to-blocks.",
     "scripts": {
+        "gen:editor": "node scripts/gen-editor.mjs",
         "build": "wp-scripts build --webpack-src-dir=src --output-path=build",
         "start": "wp-scripts start --webpack-src-dir=src --output-path=build",
         "format": "wp-scripts format",
@@ -11,6 +12,7 @@
         "plugin-zip": "wp-scripts plugin-zip"
     },
     "devDependencies": {
-        "@wordpress/scripts": "^27.0.0"
+        "@wordpress/scripts": "^27.0.0",
+        "@wordpress/server-side-render": "^4.0.0"
     }
 }

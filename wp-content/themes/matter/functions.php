@@ -55,7 +55,21 @@ add_action(
 	'after_setup_theme',
 	function () {
 		load_theme_textdomain( 'matter', get_template_directory() . '/languages' );
-		add_editor_style( 'assets/css/source.css' );
+
+		// Necessario affinché add_editor_style() venga caricato nell'editor a blocchi.
+		add_theme_support( 'editor-styles' );
+
+		// CSS sorgente + web fonts (Google Sans + Material Symbols) nell'editor,
+		// così i blocchi nel Site Editor appaiono stilizzati come in frontend.
+		add_editor_style(
+			array(
+				'assets/css/source.css',
+				// Override solo-editor: mostra gli elementi [data-reveal] (main.js non gira nell'editor).
+				'assets/css/editor.css',
+				'https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap',
+				'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0',
+			)
+		);
 	}
 );
 

@@ -173,6 +173,18 @@
     var nextBtn = document.getElementById("spazi-lightbox-next");
     if (!root || !lightbox || !imageEl || !closeBtn || !prevBtn || !nextBtn) return;
 
+    /*
+     * Il lightbox deve essere figlio diretto di <body>: setBackgroundInert()
+     * rende inert tutti i figli di body tranne il lightbox. Nel block theme il
+     * markup del lightbox è dentro il blocco gallery (annidato in <main>); se
+     * resta lì, il suo antenato verrebbe reso inert e i pulsanti (X / frecce)
+     * smetterebbero di ricevere i click. È position:fixed, quindi lo spostiamo
+     * in fondo al <body> senza effetti sul layout.
+     */
+    if (lightbox.parentNode !== document.body) {
+      document.body.appendChild(lightbox);
+    }
+
     var cards = Array.prototype.slice.call(root.querySelectorAll(".spazi-card"));
     if (!cards.length) return;
     var currentIndex = 0;

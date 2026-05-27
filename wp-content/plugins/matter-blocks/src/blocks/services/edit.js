@@ -1,140 +1,148 @@
 import { __ } from '@wordpress/i18n';
-import { MediaUpload, MediaUploadCheck, RichText, useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, Button, TextControl } from '@wordpress/components';
+import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 
+/**
+ * Editor del blocco matter/services.
+ *
+ * Anteprima fedele al frontend via ServerSideRender (render.php).
+ * Testi, immagini e link si modificano nei pannelli della barra laterale.
+ * Generato da scripts/gen-editor.mjs — non modificare a mano.
+ */
 export default function Edit( { attributes, setAttributes } ) {
-    const blockProps = useBlockProps( { className: 'section section--tint' } );
+    const blockProps = useBlockProps();
 
     return (
         <>
             <InspectorControls>
-                <PanelBody title={ __( 'Card1 Img', 'matter-blocks' ) } initialOpen={ true }>
+                <PanelBody title={ __( 'Testi', 'matter-blocks' ) } initialOpen={ true }>
+                    <TextControl
+                        label={ __( 'Eyebrow', 'matter-blocks' ) }
+                        value={ attributes['eyebrow'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'eyebrow': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Title', 'matter-blocks' ) }
+                        value={ attributes['title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Lead', 'matter-blocks' ) }
+                        value={ attributes['lead'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'lead': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card1 Kicker', 'matter-blocks' ) }
+                        value={ attributes['card1-kicker'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card1-kicker': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card1 Title', 'matter-blocks' ) }
+                        value={ attributes['card1-title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card1-title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Card1 Desc', 'matter-blocks' ) }
+                        value={ attributes['card1-desc'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card1-desc': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card2 Kicker', 'matter-blocks' ) }
+                        value={ attributes['card2-kicker'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card2-kicker': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card2 Title', 'matter-blocks' ) }
+                        value={ attributes['card2-title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card2-title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Card2 Desc', 'matter-blocks' ) }
+                        value={ attributes['card2-desc'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card2-desc': v } ) }
+                    />
+                </PanelBody>
+                <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
+                    <p className="components-base-control__label">Card1 Img</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'card1-img': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'card1-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['card1-img']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['card1-img']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['card1-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
-                </PanelBody>
-                <PanelBody title={ __( 'Card1 Cta - URL', 'matter-blocks' ) }>
+                    { attributes['card1-img']?.url && (
+                        <img src={ attributes['card1-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
                     <TextControl
-                        label={ __( 'URL', 'matter-blocks' ) }
-                        value={ attributes['card1-cta']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], url } } ) }
+                        label={ __( 'Card1 Img — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['card1-img']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'card1-img': { ...attributes['card1-img'], alt } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['card1-cta']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], target } } ) }
-                    />
-                </PanelBody>
-                <PanelBody title={ __( 'Card2 Img', 'matter-blocks' ) } initialOpen={ true }>
+                    <p className="components-base-control__label">Card2 Img</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'card2-img': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'card2-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['card2-img']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['card2-img']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['card2-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
-                </PanelBody>
-                <PanelBody title={ __( 'Card2 Cta - URL', 'matter-blocks' ) }>
+                    { attributes['card2-img']?.url && (
+                        <img src={ attributes['card2-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
                     <TextControl
-                        label={ __( 'URL', 'matter-blocks' ) }
+                        label={ __( 'Card2 Img — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['card2-img']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'card2-img': { ...attributes['card2-img'], alt } } ) }
+                    />
+                </PanelBody>
+                <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
+                    <TextControl
+                        label={ __( 'Card1 Cta — URL', 'matter-blocks' ) }
+                        value={ attributes['card1-cta']?.url || '' }
+                        onChange={ ( url ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], url } } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card1 Cta — Testo', 'matter-blocks' ) }
+                        value={ attributes['card1-cta']?.label || '' }
+                        onChange={ ( v ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], label: v } } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card1 Cta — Target (es. _blank)', 'matter-blocks' ) }
+                        value={ attributes['card1-cta']?.target || '' }
+                        onChange={ ( target ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], target } } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card2 Cta — URL', 'matter-blocks' ) }
                         value={ attributes['card2-cta']?.url || '' }
                         onChange={ ( url ) => setAttributes( { 'card2-cta': { ...attributes['card2-cta'], url } } ) }
                     />
                     <TextControl
-                        label={ __( 'Target (es. _blank)', 'matter-blocks' ) }
+                        label={ __( 'Card2 Cta — Testo', 'matter-blocks' ) }
+                        value={ attributes['card2-cta']?.label || '' }
+                        onChange={ ( v ) => setAttributes( { 'card2-cta': { ...attributes['card2-cta'], label: v } } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card2 Cta — Target (es. _blank)', 'matter-blocks' ) }
                         value={ attributes['card2-cta']?.target || '' }
                         onChange={ ( target ) => setAttributes( { 'card2-cta': { ...attributes['card2-cta'], target } } ) }
                     />
                 </PanelBody>
             </InspectorControls>
-            <section { ...blockProps }>
-            <RichText
-                tagName="p"
-                value={ attributes.eyebrow }
-                onChange={ ( v ) => setAttributes( { eyebrow: v } ) }
-                placeholder={ __( 'eyebrow…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="h2"
-                value={ attributes.title }
-                onChange={ ( v ) => setAttributes( { title: v } ) }
-                placeholder={ __( 'title…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="p"
-                value={ attributes.lead }
-                onChange={ ( v ) => setAttributes( { lead: v } ) }
-                placeholder={ __( 'lead…', 'matter-blocks' ) }
-            />
-            { attributes['card1-img']?.url && (
-                <img src={ attributes['card1-img'].url } alt={ attributes['card1-img'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['card1-kicker'] }
-                onChange={ ( v ) => setAttributes( { 'card1-kicker': v } ) }
-                placeholder={ __( 'card1-kicker…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="h3"
-                value={ attributes['card1-title'] }
-                onChange={ ( v ) => setAttributes( { 'card1-title': v } ) }
-                placeholder={ __( 'card1-title…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="p"
-                value={ attributes['card1-desc'] }
-                onChange={ ( v ) => setAttributes( { 'card1-desc': v } ) }
-                placeholder={ __( 'card1-desc…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="a"
-                value={ attributes['card1-cta']?.label || '' }
-                onChange={ ( label ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], label } } ) }
-                placeholder={ __( 'card1-cta label…', 'matter-blocks' ) }
-            />
-            { attributes['card2-img']?.url && (
-                <img src={ attributes['card2-img'].url } alt={ attributes['card2-img'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['card2-kicker'] }
-                onChange={ ( v ) => setAttributes( { 'card2-kicker': v } ) }
-                placeholder={ __( 'card2-kicker…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="h3"
-                value={ attributes['card2-title'] }
-                onChange={ ( v ) => setAttributes( { 'card2-title': v } ) }
-                placeholder={ __( 'card2-title…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="p"
-                value={ attributes['card2-desc'] }
-                onChange={ ( v ) => setAttributes( { 'card2-desc': v } ) }
-                placeholder={ __( 'card2-desc…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="a"
-                value={ attributes['card2-cta']?.label || '' }
-                onChange={ ( label ) => setAttributes( { 'card2-cta': { ...attributes['card2-cta'], label } } ) }
-                placeholder={ __( 'card2-cta label…', 'matter-blocks' ) }
-            />
-            </section>
+            <div { ...blockProps }>
+                <ServerSideRender block="matter/services" attributes={ attributes } />
+            </div>
         </>
     );
 }

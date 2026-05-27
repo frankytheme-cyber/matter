@@ -76,18 +76,6 @@
     "label-4": {
       "type": "string",
       "default": "Macchinari isotonici"
-    },
-    "spazi-lightbox-close": {
-      "type": "string",
-      "default": "<span class=\"material-symbols-rounded\">close</span>"
-    },
-    "spazi-lightbox-prev": {
-      "type": "string",
-      "default": "<span class=\"material-symbols-rounded\">chevron_left</span>"
-    },
-    "spazi-lightbox-next": {
-      "type": "string",
-      "default": "<span class=\"material-symbols-rounded\">chevron_right</span>"
     }
   }
 }

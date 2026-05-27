@@ -1,0 +1,24 @@
+/*
+ * Stili SOLO per l'editor a blocchi (caricati via add_editor_style).
+ *
+ * main.js non gira nell'editor: gli elementi con [data-reveal] resterebbero a
+ * opacity:0 (vengono rivelati allo scroll solo in frontend tramite la classe
+ * .is-visible aggiunta da main.js). Qui li forziamo allo stato "rivelato" così
+ * l'anteprima ServerSideRender mostra il contenuto come lo vede l'utente finale.
+ */
+[data-reveal] {
+	opacity: 1 !important;
+	transform: none !important;
+	transition: none !important;
+}
+
+/*
+ * La hero (.hero--overlay) si rivela tramite la classe .is-entered che main.js
+ * aggiunge al load; nell'editor main.js non gira, quindi resterebbe a opacity:0
+ * (immagine e testo invisibili). La forziamo allo stato "entrata".
+ */
+.hero--overlay,
+.hero--overlay .hero__copy {
+	opacity: 1 !important;
+	transform: none !important;
+}

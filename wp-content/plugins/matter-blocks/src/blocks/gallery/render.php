@@ -52,12 +52,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
           <div class="gallery-lightbox" id="spazi-lightbox" hidden="">
             <button class="gallery-lightbox__backdrop" type="button" aria-label="Chiudi galleria"></button>
             <div class="gallery-lightbox__inner" role="dialog" aria-modal="true" aria-label="Galleria spazi">
-              <button class="gallery-lightbox__close" id="spazi-lightbox-close" type="button" aria-label="Chiudi"><?php echo esc_html( $attributes['spazi-lightbox-close'] ?? '<span class="material-symbols-rounded">close</span>' ); ?></button>
-              <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="spazi-lightbox-prev" type="button" aria-label="Immagine precedente"><?php echo esc_html( $attributes['spazi-lightbox-prev'] ?? '<span class="material-symbols-rounded">chevron_left</span>' ); ?></button>
+              <button class="gallery-lightbox__close" id="spazi-lightbox-close" type="button" aria-label="Chiudi"><span class="material-symbols-rounded">close</span></button>
+              <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="spazi-lightbox-prev" type="button" aria-label="Immagine precedente"><span class="material-symbols-rounded">chevron_left</span></button>
               <div class="gallery-lightbox__frame">
                 <img id="spazi-lightbox-img" src="" alt="">
               </div>
-              <button class="gallery-lightbox__nav gallery-lightbox__nav--next" id="spazi-lightbox-next" type="button" aria-label="Immagine successiva"><?php echo esc_html( $attributes['spazi-lightbox-next'] ?? '<span class="material-symbols-rounded">chevron_right</span>' ); ?></button>
+              <button class="gallery-lightbox__nav gallery-lightbox__nav--next" id="spazi-lightbox-next" type="button" aria-label="Immagine successiva"><span class="material-symbols-rounded">chevron_right</span></button>
             </div>
           </div>
         </section>

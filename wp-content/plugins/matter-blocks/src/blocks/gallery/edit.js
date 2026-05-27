@@ -1,144 +1,148 @@
 import { __ } from '@wordpress/i18n';
-import { MediaUpload, MediaUploadCheck, RichText, useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, Button, TextControl } from '@wordpress/components';
+import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 
+/**
+ * Editor del blocco matter/gallery.
+ *
+ * Anteprima fedele al frontend via ServerSideRender (render.php).
+ * Testi, immagini e link si modificano nei pannelli della barra laterale.
+ * Generato da scripts/gen-editor.mjs — non modificare a mano.
+ */
 export default function Edit( { attributes, setAttributes } ) {
-    const blockProps = useBlockProps( { className: 'section' } );
+    const blockProps = useBlockProps();
 
     return (
         <>
             <InspectorControls>
-                <PanelBody title={ __( 'Img 1', 'matter-blocks' ) } initialOpen={ true }>
+                <PanelBody title={ __( 'Testi', 'matter-blocks' ) } initialOpen={ true }>
+                    <TextControl
+                        label={ __( 'Eyebrow', 'matter-blocks' ) }
+                        value={ attributes['eyebrow'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'eyebrow': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Title', 'matter-blocks' ) }
+                        value={ attributes['title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Lead', 'matter-blocks' ) }
+                        value={ attributes['lead'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'lead': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Label 1', 'matter-blocks' ) }
+                        value={ attributes['label-1'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'label-1': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Label 2', 'matter-blocks' ) }
+                        value={ attributes['label-2'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'label-2': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Label 3', 'matter-blocks' ) }
+                        value={ attributes['label-3'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'label-3': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Label 4', 'matter-blocks' ) }
+                        value={ attributes['label-4'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'label-4': v } ) }
+                    />
+                </PanelBody>
+                <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
+                    <p className="components-base-control__label">Img 1</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'img-1': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'img-1': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['img-1']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['img-1']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['img-1']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
-                </PanelBody>
-                <PanelBody title={ __( 'Img 2', 'matter-blocks' ) } initialOpen={ true }>
+                    { attributes['img-1']?.url && (
+                        <img src={ attributes['img-1'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
+                    <TextControl
+                        label={ __( 'Img 1 — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['img-1']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'img-1': { ...attributes['img-1'], alt } } ) }
+                    />
+                    <p className="components-base-control__label">Img 2</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'img-2': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'img-2': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['img-2']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['img-2']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['img-2']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
-                </PanelBody>
-                <PanelBody title={ __( 'Img 3', 'matter-blocks' ) } initialOpen={ true }>
+                    { attributes['img-2']?.url && (
+                        <img src={ attributes['img-2'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
+                    <TextControl
+                        label={ __( 'Img 2 — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['img-2']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'img-2': { ...attributes['img-2'], alt } } ) }
+                    />
+                    <p className="components-base-control__label">Img 3</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'img-3': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'img-3': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['img-3']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['img-3']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['img-3']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
-                </PanelBody>
-                <PanelBody title={ __( 'Img 4', 'matter-blocks' ) } initialOpen={ true }>
+                    { attributes['img-3']?.url && (
+                        <img src={ attributes['img-3'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
+                    <TextControl
+                        label={ __( 'Img 3 — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['img-3']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'img-3': { ...attributes['img-3'], alt } } ) }
+                    />
+                    <p className="components-base-control__label">Img 4</p>
                     <MediaUploadCheck>
                         <MediaUpload
-                            onSelect={ ( media ) => setAttributes( { 'img-4': { id: media.id, url: media.url, alt: media.alt || '' } } ) }
+                            onSelect={ ( m ) => setAttributes( { 'img-4': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
                             allowedTypes={ [ 'image' ] }
                             value={ attributes['img-4']?.id }
                             render={ ( { open } ) => (
                                 <Button variant="secondary" onClick={ open }>
-                                    { attributes['img-4']?.url ? __( 'Cambia media', 'matter-blocks' ) : __( 'Seleziona media', 'matter-blocks' ) }
+                                    { attributes['img-4']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
                                 </Button>
                             ) }
                         />
                     </MediaUploadCheck>
+                    { attributes['img-4']?.url && (
+                        <img src={ attributes['img-4'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
+                    <TextControl
+                        label={ __( 'Img 4 — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['img-4']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'img-4': { ...attributes['img-4'], alt } } ) }
+                    />
                 </PanelBody>
             </InspectorControls>
-            <section { ...blockProps }>
-            <RichText
-                tagName="p"
-                value={ attributes.eyebrow }
-                onChange={ ( v ) => setAttributes( { eyebrow: v } ) }
-                placeholder={ __( 'eyebrow…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="h2"
-                value={ attributes.title }
-                onChange={ ( v ) => setAttributes( { title: v } ) }
-                placeholder={ __( 'title…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="p"
-                value={ attributes.lead }
-                onChange={ ( v ) => setAttributes( { lead: v } ) }
-                placeholder={ __( 'lead…', 'matter-blocks' ) }
-            />
-            { attributes['img-1']?.url && (
-                <img src={ attributes['img-1'].url } alt={ attributes['img-1'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['label-1'] }
-                onChange={ ( v ) => setAttributes( { 'label-1': v } ) }
-                placeholder={ __( 'label-1…', 'matter-blocks' ) }
-            />
-            { attributes['img-2']?.url && (
-                <img src={ attributes['img-2'].url } alt={ attributes['img-2'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['label-2'] }
-                onChange={ ( v ) => setAttributes( { 'label-2': v } ) }
-                placeholder={ __( 'label-2…', 'matter-blocks' ) }
-            />
-            { attributes['img-3']?.url && (
-                <img src={ attributes['img-3'].url } alt={ attributes['img-3'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['label-3'] }
-                onChange={ ( v ) => setAttributes( { 'label-3': v } ) }
-                placeholder={ __( 'label-3…', 'matter-blocks' ) }
-            />
-            { attributes['img-4']?.url && (
-                <img src={ attributes['img-4'].url } alt={ attributes['img-4'].alt || '' } />
-            ) }
-            <RichText
-                tagName="p"
-                value={ attributes['label-4'] }
-                onChange={ ( v ) => setAttributes( { 'label-4': v } ) }
-                placeholder={ __( 'label-4…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="button"
-                value={ attributes['spazi-lightbox-close'] }
-                onChange={ ( v ) => setAttributes( { 'spazi-lightbox-close': v } ) }
-                placeholder={ __( 'spazi-lightbox-close…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="button"
-                value={ attributes['spazi-lightbox-prev'] }
-                onChange={ ( v ) => setAttributes( { 'spazi-lightbox-prev': v } ) }
-                placeholder={ __( 'spazi-lightbox-prev…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="button"
-                value={ attributes['spazi-lightbox-next'] }
-                onChange={ ( v ) => setAttributes( { 'spazi-lightbox-next': v } ) }
-                placeholder={ __( 'spazi-lightbox-next…', 'matter-blocks' ) }
-            />
-            </section>
+            <div { ...blockProps }>
+                <ServerSideRender block="matter/gallery" attributes={ attributes } />
+            </div>
         </>
     );
 }

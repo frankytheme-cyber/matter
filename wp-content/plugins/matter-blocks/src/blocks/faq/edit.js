@@ -1,73 +1,77 @@
 import { __ } from '@wordpress/i18n';
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl, TextareaControl } from '@wordpress/components';
+import ServerSideRender from '@wordpress/server-side-render';
 
+/**
+ * Editor del blocco matter/faq.
+ *
+ * Anteprima fedele al frontend via ServerSideRender (render.php).
+ * Testi, immagini e link si modificano nei pannelli della barra laterale.
+ * Generato da scripts/gen-editor.mjs — non modificare a mano.
+ */
 export default function Edit( { attributes, setAttributes } ) {
-    const blockProps = useBlockProps( { className: 'section section--dark' } );
+    const blockProps = useBlockProps();
 
     return (
         <>
-            <section { ...blockProps }>
-            <RichText
-                tagName="p"
-                value={ attributes.eyebrow }
-                onChange={ ( v ) => setAttributes( { eyebrow: v } ) }
-                placeholder={ __( 'eyebrow…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="h2"
-                value={ attributes.title }
-                onChange={ ( v ) => setAttributes( { title: v } ) }
-                placeholder={ __( 'title…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="span"
-                value={ attributes.q1 }
-                onChange={ ( v ) => setAttributes( { q1: v } ) }
-                placeholder={ __( 'q1…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="div"
-                value={ attributes.a1 }
-                onChange={ ( v ) => setAttributes( { a1: v } ) }
-                placeholder={ __( 'a1…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="span"
-                value={ attributes.q2 }
-                onChange={ ( v ) => setAttributes( { q2: v } ) }
-                placeholder={ __( 'q2…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="div"
-                value={ attributes.a2 }
-                onChange={ ( v ) => setAttributes( { a2: v } ) }
-                placeholder={ __( 'a2…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="span"
-                value={ attributes.q3 }
-                onChange={ ( v ) => setAttributes( { q3: v } ) }
-                placeholder={ __( 'q3…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="div"
-                value={ attributes.a3 }
-                onChange={ ( v ) => setAttributes( { a3: v } ) }
-                placeholder={ __( 'a3…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="span"
-                value={ attributes.q4 }
-                onChange={ ( v ) => setAttributes( { q4: v } ) }
-                placeholder={ __( 'q4…', 'matter-blocks' ) }
-            />
-            <RichText
-                tagName="div"
-                value={ attributes.a4 }
-                onChange={ ( v ) => setAttributes( { a4: v } ) }
-                placeholder={ __( 'a4…', 'matter-blocks' ) }
-            />
-            </section>
+            <InspectorControls>
+                <PanelBody title={ __( 'Testi', 'matter-blocks' ) } initialOpen={ true }>
+                    <TextControl
+                        label={ __( 'Eyebrow', 'matter-blocks' ) }
+                        value={ attributes['eyebrow'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'eyebrow': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Title', 'matter-blocks' ) }
+                        value={ attributes['title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Q1', 'matter-blocks' ) }
+                        value={ attributes['q1'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'q1': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'A1', 'matter-blocks' ) }
+                        value={ attributes['a1'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'a1': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Q2', 'matter-blocks' ) }
+                        value={ attributes['q2'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'q2': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'A2', 'matter-blocks' ) }
+                        value={ attributes['a2'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'a2': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Q3', 'matter-blocks' ) }
+                        value={ attributes['q3'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'q3': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'A3', 'matter-blocks' ) }
+                        value={ attributes['a3'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'a3': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Q4', 'matter-blocks' ) }
+                        value={ attributes['q4'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'q4': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'A4', 'matter-blocks' ) }
+                        value={ attributes['a4'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'a4': v } ) }
+                    />
+                </PanelBody>
+            </InspectorControls>
+            <div { ...blockProps }>
+                <ServerSideRender block="matter/faq" attributes={ attributes } />
+            </div>
         </>
     );
 }
