@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl } from '@wordpress/components';
+import { useBlockProps, InspectorControls, LinkControl } from '@wordpress/block-editor';
+import { PanelBody, TextareaControl, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 /**
@@ -25,19 +25,19 @@ export default function Edit( { attributes, setAttributes } ) {
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
                     <TextControl
-                        label={ __( 'Cta — URL', 'matter-blocks' ) }
-                        value={ attributes['cta']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'cta': { ...attributes['cta'], url } } ) }
-                    />
-                    <TextControl
                         label={ __( 'Cta — Testo', 'matter-blocks' ) }
                         value={ attributes['cta']?.label || '' }
                         onChange={ ( v ) => setAttributes( { 'cta': { ...attributes['cta'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Cta — Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['cta']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'cta': { ...attributes['cta'], target } } ) }
+                    <p className="components-base-control__label">{ __( 'Cta — Link', 'matter-blocks' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['cta']?.url || '', opensInNewTab: attributes['cta']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { 'cta': {
+                            url: v?.url || '',
+                            label: attributes['cta']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
                     />
                 </PanelBody>
             </InspectorControls>

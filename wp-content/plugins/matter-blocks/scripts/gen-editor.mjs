@@ -69,39 +69,49 @@ function textControl( { key, long } ) {
 function linkControls( { key } ) {
 	const label = humanize( key );
 	return `                    <TextControl
-                        label={ __( '${ label } — URL', '${ TD }' ) }
-                        value={ attributes['${ key }']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { '${ key }': { ...attributes['${ key }'], url } } ) }
-                    />
-                    <TextControl
                         label={ __( '${ label } — Testo', '${ TD }' ) }
                         value={ attributes['${ key }']?.label || '' }
                         onChange={ ( v ) => setAttributes( { '${ key }': { ...attributes['${ key }'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( '${ label } — Target (es. _blank)', '${ TD }' ) }
-                        value={ attributes['${ key }']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { '${ key }': { ...attributes['${ key }'], target } } ) }
+                    <p className="components-base-control__label">{ __( '${ label } — Link', '${ TD }' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['${ key }']?.url || '', opensInNewTab: attributes['${ key }']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { '${ key }': {
+                            url: v?.url || '',
+                            label: attributes['${ key }']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', '${ TD }' ) } ] }
                     />`;
 }
 
 function imageControls( { key } ) {
 	const label = humanize( key );
 	return `                    <p className="components-base-control__label">${ label }</p>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={ ( m ) => setAttributes( { '${ key }': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                    { ! attributes['${ key }']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { '${ key }': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
                             allowedTypes={ [ 'image' ] }
-                            value={ attributes['${ key }']?.id }
-                            render={ ( { open } ) => (
-                                <Button variant="secondary" onClick={ open }>
-                                    { attributes['${ key }']?.url ? __( 'Cambia immagine', '${ TD }' ) : __( 'Seleziona immagine', '${ TD }' ) }
-                                </Button>
-                            ) }
+                            labels={ { title: __( 'Aggiungi immagine', '${ TD }' ) } }
                         />
-                    </MediaUploadCheck>
-                    { attributes['${ key }']?.url && (
-                        <img src={ attributes['${ key }'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) : (
+                        <>
+                            <img src={ attributes['${ key }'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { '${ key }': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['${ key }']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', '${ TD }' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { '${ key }': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', '${ TD }' ) }</Button>
+                            </div>
+                        </>
                     ) }
                     <TextControl
                         label={ __( '${ label } — Testo alternativo', '${ TD }' ) }
@@ -115,12 +125,15 @@ function buildEdit( blockName, { texts, links, images } ) {
 	const beImports = [ 'useBlockProps', 'InspectorControls' ];
 	const compImports = [ 'PanelBody' ];
 	if ( texts.length ) {
-		if ( texts.some( ( t ) => ! t.long ) || links.length || images.length ) compImports.push( 'TextControl' );
+		if ( texts.some( ( t ) => ! t.long ) ) compImports.push( 'TextControl' );
 		if ( texts.some( ( t ) => t.long ) ) compImports.push( 'TextareaControl' );
 	}
-	if ( links.length && ! compImports.includes( 'TextControl' ) ) compImports.push( 'TextControl' );
+	if ( links.length ) {
+		beImports.push( 'LinkControl' );
+		if ( ! compImports.includes( 'TextControl' ) ) compImports.push( 'TextControl' );
+	}
 	if ( images.length ) {
-		beImports.push( 'MediaUpload', 'MediaUploadCheck' );
+		beImports.push( 'MediaUpload', 'MediaUploadCheck', 'MediaPlaceholder' );
 		compImports.push( 'Button' );
 		if ( ! compImports.includes( 'TextControl' ) ) compImports.push( 'TextControl' );
 	}

@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck, MediaPlaceholder } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -55,20 +55,30 @@ export default function Edit( { attributes, setAttributes } ) {
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
                     <p className="components-base-control__label">Card1 Img</p>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={ ( m ) => setAttributes( { 'card1-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                    { ! attributes['card1-img']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { 'card1-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
                             allowedTypes={ [ 'image' ] }
-                            value={ attributes['card1-img']?.id }
-                            render={ ( { open } ) => (
-                                <Button variant="secondary" onClick={ open }>
-                                    { attributes['card1-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
-                                </Button>
-                            ) }
+                            labels={ { title: __( 'Aggiungi immagine', 'matter-blocks' ) } }
                         />
-                    </MediaUploadCheck>
-                    { attributes['card1-img']?.url && (
-                        <img src={ attributes['card1-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) : (
+                        <>
+                            <img src={ attributes['card1-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { 'card1-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['card1-img']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', 'matter-blocks' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'card1-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
+                            </div>
+                        </>
                     ) }
                     <TextControl
                         label={ __( 'Card1 Img — Testo alternativo', 'matter-blocks' ) }
@@ -76,20 +86,30 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( alt ) => setAttributes( { 'card1-img': { ...attributes['card1-img'], alt } } ) }
                     />
                     <p className="components-base-control__label">Card2 Img</p>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={ ( m ) => setAttributes( { 'card2-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                    { ! attributes['card2-img']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { 'card2-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
                             allowedTypes={ [ 'image' ] }
-                            value={ attributes['card2-img']?.id }
-                            render={ ( { open } ) => (
-                                <Button variant="secondary" onClick={ open }>
-                                    { attributes['card2-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
-                                </Button>
-                            ) }
+                            labels={ { title: __( 'Aggiungi immagine', 'matter-blocks' ) } }
                         />
-                    </MediaUploadCheck>
-                    { attributes['card2-img']?.url && (
-                        <img src={ attributes['card2-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) : (
+                        <>
+                            <img src={ attributes['card2-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { 'card2-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['card2-img']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', 'matter-blocks' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'card2-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
+                            </div>
+                        </>
                     ) }
                     <TextControl
                         label={ __( 'Card2 Img — Testo alternativo', 'matter-blocks' ) }

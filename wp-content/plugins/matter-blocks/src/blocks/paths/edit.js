@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, LinkControl, MediaUpload, MediaUploadCheck, MediaPlaceholder } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -80,20 +80,30 @@ export default function Edit( { attributes, setAttributes } ) {
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
                     <p className="components-base-control__label">Row1 Img</p>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={ ( m ) => setAttributes( { 'row1-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                    { ! attributes['row1-img']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { 'row1-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
                             allowedTypes={ [ 'image' ] }
-                            value={ attributes['row1-img']?.id }
-                            render={ ( { open } ) => (
-                                <Button variant="secondary" onClick={ open }>
-                                    { attributes['row1-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
-                                </Button>
-                            ) }
+                            labels={ { title: __( 'Aggiungi immagine', 'matter-blocks' ) } }
                         />
-                    </MediaUploadCheck>
-                    { attributes['row1-img']?.url && (
-                        <img src={ attributes['row1-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) : (
+                        <>
+                            <img src={ attributes['row1-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { 'row1-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['row1-img']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', 'matter-blocks' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'row1-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
+                            </div>
+                        </>
                     ) }
                     <TextControl
                         label={ __( 'Row1 Img — Testo alternativo', 'matter-blocks' ) }
@@ -101,20 +111,30 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( alt ) => setAttributes( { 'row1-img': { ...attributes['row1-img'], alt } } ) }
                     />
                     <p className="components-base-control__label">Row2 Img</p>
-                    <MediaUploadCheck>
-                        <MediaUpload
-                            onSelect={ ( m ) => setAttributes( { 'row2-img': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                    { ! attributes['row2-img']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { 'row2-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
                             allowedTypes={ [ 'image' ] }
-                            value={ attributes['row2-img']?.id }
-                            render={ ( { open } ) => (
-                                <Button variant="secondary" onClick={ open }>
-                                    { attributes['row2-img']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
-                                </Button>
-                            ) }
+                            labels={ { title: __( 'Aggiungi immagine', 'matter-blocks' ) } }
                         />
-                    </MediaUploadCheck>
-                    { attributes['row2-img']?.url && (
-                        <img src={ attributes['row2-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) : (
+                        <>
+                            <img src={ attributes['row2-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { 'row2-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['row2-img']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', 'matter-blocks' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'row2-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
+                            </div>
+                        </>
                     ) }
                     <TextControl
                         label={ __( 'Row2 Img — Testo alternativo', 'matter-blocks' ) }
@@ -124,34 +144,34 @@ export default function Edit( { attributes, setAttributes } ) {
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
                     <TextControl
-                        label={ __( 'Cta Primary — URL', 'matter-blocks' ) }
-                        value={ attributes['cta-primary']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], url } } ) }
-                    />
-                    <TextControl
                         label={ __( 'Cta Primary — Testo', 'matter-blocks' ) }
                         value={ attributes['cta-primary']?.label || '' }
                         onChange={ ( v ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Cta Primary — Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['cta-primary']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], target } } ) }
-                    />
-                    <TextControl
-                        label={ __( 'Cta Secondary — URL', 'matter-blocks' ) }
-                        value={ attributes['cta-secondary']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], url } } ) }
+                    <p className="components-base-control__label">{ __( 'Cta Primary — Link', 'matter-blocks' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['cta-primary']?.url || '', opensInNewTab: attributes['cta-primary']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { 'cta-primary': {
+                            url: v?.url || '',
+                            label: attributes['cta-primary']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
                     />
                     <TextControl
                         label={ __( 'Cta Secondary — Testo', 'matter-blocks' ) }
                         value={ attributes['cta-secondary']?.label || '' }
                         onChange={ ( v ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Cta Secondary — Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['cta-secondary']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], target } } ) }
+                    <p className="components-base-control__label">{ __( 'Cta Secondary — Link', 'matter-blocks' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['cta-secondary']?.url || '', opensInNewTab: attributes['cta-secondary']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { 'cta-secondary': {
+                            url: v?.url || '',
+                            label: attributes['cta-secondary']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
                     />
                 </PanelBody>
             </InspectorControls>

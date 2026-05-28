@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, LinkControl } from '@wordpress/block-editor';
 import { PanelBody, TextControl, TextareaControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -30,34 +30,34 @@ export default function Edit( { attributes, setAttributes } ) {
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
                     <TextControl
-                        label={ __( 'Cta Primary — URL', 'matter-blocks' ) }
-                        value={ attributes['cta-primary']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], url } } ) }
-                    />
-                    <TextControl
                         label={ __( 'Cta Primary — Testo', 'matter-blocks' ) }
                         value={ attributes['cta-primary']?.label || '' }
                         onChange={ ( v ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Cta Primary — Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['cta-primary']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], target } } ) }
-                    />
-                    <TextControl
-                        label={ __( 'Cta Secondary — URL', 'matter-blocks' ) }
-                        value={ attributes['cta-secondary']?.url || '' }
-                        onChange={ ( url ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], url } } ) }
+                    <p className="components-base-control__label">{ __( 'Cta Primary — Link', 'matter-blocks' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['cta-primary']?.url || '', opensInNewTab: attributes['cta-primary']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { 'cta-primary': {
+                            url: v?.url || '',
+                            label: attributes['cta-primary']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
                     />
                     <TextControl
                         label={ __( 'Cta Secondary — Testo', 'matter-blocks' ) }
                         value={ attributes['cta-secondary']?.label || '' }
                         onChange={ ( v ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], label: v } } ) }
                     />
-                    <TextControl
-                        label={ __( 'Cta Secondary — Target (es. _blank)', 'matter-blocks' ) }
-                        value={ attributes['cta-secondary']?.target || '' }
-                        onChange={ ( target ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], target } } ) }
+                    <p className="components-base-control__label">{ __( 'Cta Secondary — Link', 'matter-blocks' ) }</p>
+                    <LinkControl
+                        value={ { url: attributes['cta-secondary']?.url || '', opensInNewTab: attributes['cta-secondary']?.target === '_blank' } }
+                        onChange={ ( v ) => setAttributes( { 'cta-secondary': {
+                            url: v?.url || '',
+                            label: attributes['cta-secondary']?.label || '',
+                            target: v?.opensInNewTab ? '_blank' : ''
+                        } } ) }
+                        settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
                     />
                 </PanelBody>
             </InspectorControls>
