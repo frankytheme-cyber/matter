@@ -43,6 +43,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Cta Secondary — Testo', 'matter-blocks' ) }
@@ -58,6 +60,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                 </PanelBody>
             </InspectorControls>

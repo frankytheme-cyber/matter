@@ -58,13 +58,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'image': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['image']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'image': { ...attributes['image'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Image — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['image']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'image': { ...attributes['image'], alt } } ) }
-                    />
                 </PanelBody>
             </InspectorControls>
             <div { ...blockProps }>

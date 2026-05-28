@@ -38,6 +38,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                 </PanelBody>
             </InspectorControls>

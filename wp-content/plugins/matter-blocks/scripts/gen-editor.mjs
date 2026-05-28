@@ -82,6 +82,8 @@ function linkControls( { key } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', '${ TD }' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />`;
 }
 
@@ -111,13 +113,15 @@ function imageControls( { key } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { '${ key }': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', '${ TD }' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', '${ TD }' ) }
+                                help={ __( 'Descrizione dell\\'immagine per screen reader e SEO.', '${ TD }' ) }
+                                value={ attributes['${ key }']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { '${ key }': { ...attributes['${ key }'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
-                    ) }
-                    <TextControl
-                        label={ __( '${ label } — Testo alternativo', '${ TD }' ) }
-                        value={ attributes['${ key }']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { '${ key }': { ...attributes['${ key }'], alt } } ) }
-                    />`;
+                    ) }`;
 }
 
 function buildEdit( blockName, { texts, links, images } ) {

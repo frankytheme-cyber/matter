@@ -31,6 +31,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 2 — Testo', 'matter-blocks' ) }
@@ -46,6 +48,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 3 — Testo', 'matter-blocks' ) }
@@ -61,6 +65,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 4 — Testo', 'matter-blocks' ) }
@@ -76,6 +82,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 5 — Testo', 'matter-blocks' ) }
@@ -91,6 +99,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 6 — Testo', 'matter-blocks' ) }
@@ -106,6 +116,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 7 — Testo', 'matter-blocks' ) }
@@ -121,6 +133,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 8 — Testo', 'matter-blocks' ) }
@@ -136,6 +150,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 9 — Testo', 'matter-blocks' ) }
@@ -151,6 +167,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 10 — Testo', 'matter-blocks' ) }
@@ -166,6 +184,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 11 — Testo', 'matter-blocks' ) }
@@ -181,6 +201,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 12 — Testo', 'matter-blocks' ) }
@@ -196,6 +218,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 13 — Testo', 'matter-blocks' ) }
@@ -211,6 +235,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 14 — Testo', 'matter-blocks' ) }
@@ -226,6 +252,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 15 — Testo', 'matter-blocks' ) }
@@ -241,6 +269,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 16 — Testo', 'matter-blocks' ) }
@@ -256,6 +286,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 17 — Testo', 'matter-blocks' ) }
@@ -271,6 +303,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Link 18 — Testo', 'matter-blocks' ) }
@@ -286,6 +320,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                 </PanelBody>
             </InspectorControls>

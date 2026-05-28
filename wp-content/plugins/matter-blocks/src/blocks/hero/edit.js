@@ -53,13 +53,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'image': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['image']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'image': { ...attributes['image'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Image — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['image']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'image': { ...attributes['image'], alt } } ) }
-                    />
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
                     <TextControl
@@ -76,6 +78,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Cta Secondary — Testo', 'matter-blocks' ) }
@@ -91,6 +95,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                 </PanelBody>
             </InspectorControls>

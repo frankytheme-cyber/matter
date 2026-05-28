@@ -83,13 +83,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'img-1': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['img-1']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'img-1': { ...attributes['img-1'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Img 1 — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['img-1']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'img-1': { ...attributes['img-1'], alt } } ) }
-                    />
                     <p className="components-base-control__label">Img 2</p>
                     { ! attributes['img-2']?.url ? (
                         <MediaPlaceholder
@@ -114,13 +116,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'img-2': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['img-2']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'img-2': { ...attributes['img-2'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Img 2 — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['img-2']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'img-2': { ...attributes['img-2'], alt } } ) }
-                    />
                     <p className="components-base-control__label">Img 3</p>
                     { ! attributes['img-3']?.url ? (
                         <MediaPlaceholder
@@ -145,13 +149,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'img-3': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['img-3']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'img-3': { ...attributes['img-3'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Img 3 — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['img-3']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'img-3': { ...attributes['img-3'], alt } } ) }
-                    />
                     <p className="components-base-control__label">Img 4</p>
                     { ! attributes['img-4']?.url ? (
                         <MediaPlaceholder
@@ -176,13 +182,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'img-4': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['img-4']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'img-4': { ...attributes['img-4'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Img 4 — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['img-4']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'img-4': { ...attributes['img-4'], alt } } ) }
-                    />
                     <p className="components-base-control__label">Img 5</p>
                     { ! attributes['img-5']?.url ? (
                         <MediaPlaceholder
@@ -207,13 +215,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'img-5': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['img-5']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'img-5': { ...attributes['img-5'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Img 5 — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['img-5']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'img-5': { ...attributes['img-5'], alt } } ) }
-                    />
                 </PanelBody>
             </InspectorControls>
             <div { ...blockProps }>

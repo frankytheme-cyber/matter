@@ -88,13 +88,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'card1-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['card1-img']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'card1-img': { ...attributes['card1-img'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Card1 Img — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['card1-img']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'card1-img': { ...attributes['card1-img'], alt } } ) }
-                    />
                     <p className="components-base-control__label">Card2 Img</p>
                     { ! attributes['card2-img']?.url ? (
                         <MediaPlaceholder
@@ -119,13 +121,15 @@ export default function Edit( { attributes, setAttributes } ) {
                                 </MediaUploadCheck>
                                 <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'card2-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
                             </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['card2-img']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'card2-img': { ...attributes['card2-img'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
                         </>
                     ) }
-                    <TextControl
-                        label={ __( 'Card2 Img — Testo alternativo', 'matter-blocks' ) }
-                        value={ attributes['card2-img']?.alt || '' }
-                        onChange={ ( alt ) => setAttributes( { 'card2-img': { ...attributes['card2-img'], alt } } ) }
-                    />
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
                     <TextControl
@@ -142,6 +146,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                     <TextControl
                         label={ __( 'Card2 Cta — Testo', 'matter-blocks' ) }
@@ -157,6 +163,8 @@ export default function Edit( { attributes, setAttributes } ) {
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        forceIsEditingLink={ true }
+                        hasRichPreviews={ false }
                     />
                 </PanelBody>
             </InspectorControls>
