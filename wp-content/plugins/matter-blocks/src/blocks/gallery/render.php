@@ -46,6 +46,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <p class="spazi-card__label"><?php echo wp_kses_post( $attributes['label-4'] ?? 'Macchinari isotonici' ); ?></p>
                 <span class="spazi-card__expand" aria-hidden="true"><span class="material-symbols-rounded">open_in_full</span></span>
               </button>
+              <?php if ( ! empty( $attributes['img-5']['url'] ) ) : ?>
+              <button class="spazi-card" type="button" aria-label="<?php echo esc_attr( 'Apri foto: ' . ( $attributes['label-5'] ?? '' ) ); ?>">
+                <img src="<?php echo esc_url( $attributes['img-5']['url'] ); ?>" alt="<?php echo esc_attr( $attributes['img-5']['alt'] ?? '' ); ?>" loading="lazy">
+                <p class="spazi-card__label"><?php echo wp_kses_post( $attributes['label-5'] ?? '' ); ?></p>
+                <span class="spazi-card__expand" aria-hidden="true"><span class="material-symbols-rounded">open_in_full</span></span>
+              </button>
+              <?php endif; ?>
             </div>
           </div>
 

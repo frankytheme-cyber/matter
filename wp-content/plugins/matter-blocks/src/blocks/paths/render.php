@@ -41,6 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               </div>
             </div>
           </div>
+          <?php if ( ! empty( $attributes['cta-title'] ) ) : ?>
           <div class="custom-cta percorsi-cta-finale" data-reveal="" data-reveal-delay="120">
             <div class="custom-cta__body">
               <p class="custom-cta__kicker"><?php echo wp_kses_post( $attributes['cta-kicker'] ?? 'Approfondimento' ); ?></p>
@@ -53,4 +54,5 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               </div>
             </div>
           </div>
+          <?php endif; ?>
         </section>

@@ -52,6 +52,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         value={ attributes['label-4'] || '' }
                         onChange={ ( v ) => setAttributes( { 'label-4': v } ) }
                     />
+                    <TextControl
+                        label={ __( 'Label 5', 'matter-blocks' ) }
+                        value={ attributes['label-5'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'label-5': v } ) }
+                    />
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
                     <p className="components-base-control__label">Img 1</p>
@@ -137,6 +142,27 @@ export default function Edit( { attributes, setAttributes } ) {
                         label={ __( 'Img 4 — Testo alternativo', 'matter-blocks' ) }
                         value={ attributes['img-4']?.alt || '' }
                         onChange={ ( alt ) => setAttributes( { 'img-4': { ...attributes['img-4'], alt } } ) }
+                    />
+                    <p className="components-base-control__label">Img 5</p>
+                    <MediaUploadCheck>
+                        <MediaUpload
+                            onSelect={ ( m ) => setAttributes( { 'img-5': { id: m.id, url: m.url, alt: m.alt || '' } } ) }
+                            allowedTypes={ [ 'image' ] }
+                            value={ attributes['img-5']?.id }
+                            render={ ( { open } ) => (
+                                <Button variant="secondary" onClick={ open }>
+                                    { attributes['img-5']?.url ? __( 'Cambia immagine', 'matter-blocks' ) : __( 'Seleziona immagine', 'matter-blocks' ) }
+                                </Button>
+                            ) }
+                        />
+                    </MediaUploadCheck>
+                    { attributes['img-5']?.url && (
+                        <img src={ attributes['img-5'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                    ) }
+                    <TextControl
+                        label={ __( 'Img 5 — Testo alternativo', 'matter-blocks' ) }
+                        value={ attributes['img-5']?.alt || '' }
+                        onChange={ ( alt ) => setAttributes( { 'img-5': { ...attributes['img-5'], alt } } ) }
                     />
                 </PanelBody>
             </InspectorControls>

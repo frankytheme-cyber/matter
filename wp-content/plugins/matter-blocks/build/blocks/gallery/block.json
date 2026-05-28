@@ -76,6 +76,18 @@
     "label-4": {
       "type": "string",
       "default": "Macchinari isotonici"
+    },
+    "img-5": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "alt": "",
+        "id": 0
+      }
+    },
+    "label-5": {
+      "type": "string",
+      "default": ""
     }
   }
 }

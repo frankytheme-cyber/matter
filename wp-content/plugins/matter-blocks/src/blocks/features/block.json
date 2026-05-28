@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/features",
+    "title": "Features",
+    "category": "matter",
+    "description": "Griglia di 4 caratteristiche con icona (Material Symbols), titolo e descrizione. Contenuto impostato per istanza.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Sezione"
+        },
+        "title": {
+            "type": "string",
+            "default": "Titolo della sezione"
+        },
+        "lead": {
+            "type": "string",
+            "default": ""
+        },
+        "tile1-icon": {
+            "type": "string",
+            "default": "check_circle"
+        },
+        "tile1-title": {
+            "type": "string",
+            "default": "Titolo caratteristica"
+        },
+        "tile1-desc": {
+            "type": "string",
+            "default": "Descrizione sintetica della caratteristica."
+        },
+        "tile2-icon": {
+            "type": "string",
+            "default": "check_circle"
+        },
+        "tile2-title": {
+            "type": "string",
+            "default": "Titolo caratteristica"
+        },
+        "tile2-desc": {
+            "type": "string",
+            "default": "Descrizione sintetica della caratteristica."
+        },
+        "tile3-icon": {
+            "type": "string",
+            "default": "check_circle"
+        },
+        "tile3-title": {
+            "type": "string",
+            "default": "Titolo caratteristica"
+        },
+        "tile3-desc": {
+            "type": "string",
+            "default": "Descrizione sintetica della caratteristica."
+        },
+        "tile4-icon": {
+            "type": "string",
+            "default": "check_circle"
+        },
+        "tile4-title": {
+            "type": "string",
+            "default": "Titolo caratteristica"
+        },
+        "tile4-desc": {
+            "type": "string",
+            "default": "Descrizione sintetica della caratteristica."
+        }
+    }
+}

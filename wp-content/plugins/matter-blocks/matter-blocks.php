@@ -60,3 +60,85 @@ add_filter( 'block_categories_all', function ( $categories ) {
         ) )
     );
 } );
+
+/**
+ * Registra la location di menu usata dall'header (blocco matter/site-header).
+ * Registrare una location riattiva anche la schermata "Aspetto → Menu".
+ */
+add_action( 'after_setup_theme', function () {
+    register_nav_menu( 'primary', __( 'Navigazione principale (header)', 'matter-blocks' ) );
+} );
+
+/**
+ * Walker che riproduce il markup del menu della demo, senza <ul>/<li>:
+ *  - desktop: voce semplice = <a>; voce con figli = .nav-item--dropdown >
+ *    button.nav-item__trigger + div.nav-dropdown (gestito da main.js via classi);
+ *  - mobile: voce semplice = <a>; voce con figli = <details.mobile-nav__accordion>.
+ * Il container (<nav class="nav-list"> / #menu-mobile) è fornito da render.php.
+ */
+if ( ! class_exists( 'Matter_Nav_Walker' ) ) {
+    class Matter_Nav_Walker extends Walker_Nav_Menu {
+        /** @var string 'desktop'|'mobile' */
+        protected $mode;
+        /** @var array<int,bool> id voce => ha figli */
+        protected $item_has_children = array();
+        /** @var string id del pannello dropdown corrente (per aria-controls) */
+        protected $panel_id = '';
+
+        public function __construct( $mode = 'desktop' ) {
+            $this->mode = ( 'mobile' === $mode ) ? 'mobile' : 'desktop';
+        }
+
+        /** Registra in modo affidabile quali voci hanno figli. */
+        public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+            if ( $element ) {
+                $id = $element->{$this->db_fields['id']};
+                $this->item_has_children[ $id ] = ! empty( $children_elements[ $id ] );
+            }
+            parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+        }
+
+        public function start_lvl( &$output, $depth = 0, $args = null ) {
+            if ( 'desktop' === $this->mode ) {
+                $output .= '<div class="nav-dropdown" id="' . esc_attr( $this->panel_id ) . '" hidden>';
+            }
+            // mobile: i figli vanno direttamente dentro <details>, nessun wrapper.
+        }
+
+        public function end_lvl( &$output, $depth = 0, $args = null ) {
+            if ( 'desktop' === $this->mode ) {
+                $output .= '</div>';
+            }
+        }
+
+        public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+            $has_children = ! empty( $this->item_has_children[ $item->ID ] );
+            $url          = ! empty( $item->url ) ? $item->url : '#';
+            $title        = $item->title;
+
+            if ( 0 === $depth && $has_children ) {
+                $this->panel_id = 'nav-menu-' . (int) $item->ID . '-panel';
+                if ( 'desktop' === $this->mode ) {
+                    $output .= '<div class="nav-item--dropdown" data-nav-dropdown="">';
+                    $output .= '<button type="button" class="nav-item__trigger" aria-expanded="false" aria-controls="' . esc_attr( $this->panel_id ) . '" aria-haspopup="true">';
+                    $output .= esc_html( $title );
+                    $output .= '<span class="material-symbols-rounded nav-item__caret" aria-hidden="true">expand_more</span>';
+                    $output .= '</button>';
+                } else {
+                    $output .= '<details class="mobile-nav__accordion"><summary>';
+                    $output .= esc_html( $title );
+                    $output .= '<span class="material-symbols-rounded nav-caret-rotate" aria-hidden="true">expand_more</span>';
+                    $output .= '</summary>';
+                }
+            } else {
+                $output .= '<a href="' . esc_url( $url ) . '">' . esc_html( $title ) . '</a>';
+            }
+        }
+
+        public function end_el( &$output, $item, $depth = 0, $args = null ) {
+            if ( 0 === $depth && ! empty( $this->item_has_children[ $item->ID ] ) ) {
+                $output .= ( 'desktop' === $this->mode ) ? '</div>' : '</details>';
+            }
+        }
+    }
+}
