@@ -8,8 +8,13 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+// Se l'utente non ha impostato un anchor sul blocco, applichiamo l'id
+// "percorsi-specializzati": gli stili della CTA finale (centratura, bottoni
+// verdi pieni) nel CSS sorgente sono scoped sotto questo id.
+$mof_paths_id_attr = empty( $attributes['anchor'] ) ? ' id="percorsi-specializzati"' : '';
 ?>
-<section <?php echo wp_kses_data( get_block_wrapper_attributes( array( 'class' => 'section' ) ) ); ?>>
+<section <?php echo wp_kses_data( get_block_wrapper_attributes( array( 'class' => 'section' ) ) ); ?><?php echo $mof_paths_id_attr; ?> aria-labelledby="percorsi-specializzati-title">
           <header class="section-head" data-reveal="">
             <p class="eyebrow"><?php echo wp_kses_post( $attributes['eyebrow'] ?? 'Programmazione' ); ?></p>
             <h2 id="percorsi-specializzati-title" class="section-title"><?php echo wp_kses_post( $attributes['title'] ?? 'Percorsi specializzati' ); ?></h2>
@@ -49,8 +54,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               <p class="custom-cta__desc"><?php echo wp_kses_post( $attributes['cta-desc'] ?? 'Nella pagina dedicata trovi tutti i percorsi specializzati con obiettivi,
                 modalità di lavoro e indicazioni pratiche per capire da dove partire.' ); ?></p>
               <div class="custom-cta__actions">
-                <a class="btn-pill btn-pill--light custom-cta__btn" href="<?php echo esc_url( $attributes['cta-primary']['url'] ?? '/servizi/percorsi-specializzati/' ); ?>"><?php echo esc_html( $attributes['cta-primary']['label'] ?? 'Vedi i percorsi' ); ?></a>
-                <a class="btn-pill btn-pill--outline custom-cta__btn" href="<?php echo esc_url( $attributes['cta-secondary']['url'] ?? '/contatti/#scrivici' ); ?>"><?php echo esc_html( $attributes['cta-secondary']['label'] ?? 'Parla con lo staff' ); ?></a>
+                <?php if ( ! empty( $attributes['cta-primary']['url'] ) ) : ?>
+                <a class="btn-pill btn-pill--light custom-cta__btn" href="<?php echo esc_url( $attributes['cta-primary']['url'] ); ?>"><?php echo esc_html( $attributes['cta-primary']['label'] ?? '' ); ?></a>
+                <?php endif; ?>
+                <?php if ( ! empty( $attributes['cta-secondary']['url'] ) ) : ?>
+                <a class="btn-pill btn-pill--outline custom-cta__btn" href="<?php echo esc_url( $attributes['cta-secondary']['url'] ); ?>"><?php echo esc_html( $attributes['cta-secondary']['label'] ?? '' ); ?></a>
+                <?php endif; ?>
               </div>
             </div>
           </div>

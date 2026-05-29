@@ -68,20 +68,20 @@ function textControl( { key, long } ) {
 
 function linkControls( { key } ) {
 	const label = humanize( key );
-	return `                    <TextControl
-                        label={ __( '${ label } — Testo', '${ TD }' ) }
-                        value={ attributes['${ key }']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { '${ key }': { ...attributes['${ key }'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( '${ label } — Link', '${ TD }' ) }</p>
+	return `                    <p className="components-base-control__label">{ __( '${ label }', '${ TD }' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['${ key }']?.url || '', opensInNewTab: attributes['${ key }']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['${ key }']?.url || '',
+                            title: attributes['${ key }']?.label || '',
+                            opensInNewTab: attributes['${ key }']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { '${ key }': {
                             url: v?.url || '',
-                            label: attributes['${ key }']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', '${ TD }' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />`;
@@ -134,7 +134,6 @@ function buildEdit( blockName, { texts, links, images } ) {
 	}
 	if ( links.length ) {
 		beImports.push( 'LinkControl' );
-		if ( ! compImports.includes( 'TextControl' ) ) compImports.push( 'TextControl' );
 	}
 	if ( images.length ) {
 		beImports.push( 'MediaUpload', 'MediaUploadCheck', 'MediaPlaceholder' );

@@ -147,37 +147,37 @@ export default function Edit( { attributes, setAttributes } ) {
                     ) }
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
-                    <TextControl
-                        label={ __( 'Cta Primary — Testo', 'matter-blocks' ) }
-                        value={ attributes['cta-primary']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'cta-primary': { ...attributes['cta-primary'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Cta Primary — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Cta Primary', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['cta-primary']?.url || '', opensInNewTab: attributes['cta-primary']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['cta-primary']?.url || '',
+                            title: attributes['cta-primary']?.label || '',
+                            opensInNewTab: attributes['cta-primary']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'cta-primary': {
                             url: v?.url || '',
-                            label: attributes['cta-primary']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Cta Secondary — Testo', 'matter-blocks' ) }
-                        value={ attributes['cta-secondary']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'cta-secondary': { ...attributes['cta-secondary'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Cta Secondary — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Cta Secondary', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['cta-secondary']?.url || '', opensInNewTab: attributes['cta-secondary']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['cta-secondary']?.url || '',
+                            title: attributes['cta-secondary']?.label || '',
+                            opensInNewTab: attributes['cta-secondary']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'cta-secondary': {
                             url: v?.url || '',
-                            label: attributes['cta-secondary']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />

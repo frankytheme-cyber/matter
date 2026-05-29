@@ -31,7 +31,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             luogo dove ci si conosce per nome, dove gli ambienti sono ordinati e
             dove nessuno resta senza una risposta quando ne ha bisogno.' ); ?></p>
 
+          <?php if ( ! empty( $attributes['cta']['url'] ) ) : ?>
           <div class="social-row" data-reveal="" data-reveal-delay="200">
-            <a class="btn-pill btn-pill--dark" href="<?php echo esc_url( $attributes['cta']['url'] ?? '/chi-siamo/' ); ?>"><?php echo esc_html( $attributes['cta']['label'] ?? 'La nostra storia' ); ?></a>
+            <a class="btn-pill btn-pill--dark" href="<?php echo esc_url( $attributes['cta']['url'] ); ?>"><?php echo esc_html( $attributes['cta']['label'] ?? '' ); ?></a>
           </div>
+          <?php endif; ?>
         </section>

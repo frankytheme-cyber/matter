@@ -132,37 +132,37 @@ export default function Edit( { attributes, setAttributes } ) {
                     ) }
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
-                    <TextControl
-                        label={ __( 'Card1 Cta — Testo', 'matter-blocks' ) }
-                        value={ attributes['card1-cta']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'card1-cta': { ...attributes['card1-cta'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Card1 Cta — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Card1 Cta', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['card1-cta']?.url || '', opensInNewTab: attributes['card1-cta']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['card1-cta']?.url || '',
+                            title: attributes['card1-cta']?.label || '',
+                            opensInNewTab: attributes['card1-cta']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'card1-cta': {
                             url: v?.url || '',
-                            label: attributes['card1-cta']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Card2 Cta — Testo', 'matter-blocks' ) }
-                        value={ attributes['card2-cta']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'card2-cta': { ...attributes['card2-cta'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Card2 Cta — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Card2 Cta', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['card2-cta']?.url || '', opensInNewTab: attributes['card2-cta']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['card2-cta']?.url || '',
+                            title: attributes['card2-cta']?.label || '',
+                            opensInNewTab: attributes['card2-cta']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'card2-cta': {
                             url: v?.url || '',
-                            label: attributes['card2-cta']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />

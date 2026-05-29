@@ -29,7 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <p class="service-card__desc"><?php echo wp_kses_post( $attributes['card1-desc'] ?? 'Sessioni individuali con un trainer dedicato. Valutazione
                   iniziale, programma periodizzato e aggiornamenti ogni quattro
                   o sei settimane.' ); ?></p>
-                <a class="btn-pill btn-pill--dark service-card__cta" href="<?php echo esc_url( $attributes['card1-cta']['url'] ?? '/servizi/personal-training/' ); ?>"><?php echo esc_html( $attributes['card1-cta']['label'] ?? 'Vedi Personal Training' ); ?></a>
+                <?php if ( ! empty( $attributes['card1-cta']['url'] ) ) : ?>
+                <a class="btn-pill btn-pill--dark service-card__cta" href="<?php echo esc_url( $attributes['card1-cta']['url'] ); ?>"><?php echo esc_html( $attributes['card1-cta']['label'] ?? '' ); ?></a>
+                <?php endif; ?>
               </div>
             </article>
             <article class="service-card" data-reveal="" data-reveal-delay="120">
@@ -43,7 +45,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <p class="service-card__desc"><?php echo wp_kses_post( $attributes['card2-desc'] ?? 'Collaboriamo con fisioterapisti e nutrizionisti esterni che
                   completano il lavoro in sala con recupero, prevenzione e
                   consulenza alimentare.' ); ?></p>
-                <a class="btn-pill btn-pill--dark service-card__cta" href="<?php echo esc_url( $attributes['card2-cta']['url'] ?? '/servizi/' ); ?>"><?php echo esc_html( $attributes['card2-cta']['label'] ?? 'Tutti i servizi' ); ?></a>
+                <?php if ( ! empty( $attributes['card2-cta']['url'] ) ) : ?>
+                <a class="btn-pill btn-pill--dark service-card__cta" href="<?php echo esc_url( $attributes['card2-cta']['url'] ); ?>"><?php echo esc_html( $attributes['card2-cta']['label'] ?? '' ); ?></a>
+                <?php endif; ?>
               </div>
             </article>
           </div>

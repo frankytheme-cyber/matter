@@ -19,10 +19,20 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                   Ambienti curati, attrezzature professionali e uno staff che
                   conosce ogni socio per nome. Scopri i <a class="u-inline-link" href="/servizi/">servizi in palestra</a>.' ); ?></p>
               </div>
+              <?php
+              $mof_p_url = $attributes['cta-primary']['url'] ?? '/sedi/pescantina/';
+              $mof_s_url = $attributes['cta-secondary']['url'] ?? '/contatti/';
+              if ( ! empty( $mof_p_url ) || ! empty( $mof_s_url ) ) :
+              ?>
               <div class="hero__actions">
-                <a class="btn-pill btn-pill--light" href="<?php echo esc_url( $attributes['cta-primary']['url'] ?? '/sedi/pescantina/' ); ?>"><?php echo esc_html( $attributes['cta-primary']['label'] ?? 'Scegli la Sede' ); ?></a>
-                <a class="btn-pill btn-pill--outline" href="<?php echo esc_url( $attributes['cta-secondary']['url'] ?? '/contatti/' ); ?>"><?php echo esc_html( $attributes['cta-secondary']['label'] ?? 'Contattaci' ); ?></a>
+                <?php if ( ! empty( $mof_p_url ) ) : ?>
+                <a class="btn-pill btn-pill--light" href="<?php echo esc_url( $mof_p_url ); ?>"><?php echo esc_html( $attributes['cta-primary']['label'] ?? 'Scegli la Sede' ); ?></a>
+                <?php endif; ?>
+                <?php if ( ! empty( $mof_s_url ) ) : ?>
+                <a class="btn-pill btn-pill--outline" href="<?php echo esc_url( $mof_s_url ); ?>"><?php echo esc_html( $attributes['cta-secondary']['label'] ?? 'Contattaci' ); ?></a>
+                <?php endif; ?>
               </div>
+              <?php endif; ?>
             </div>
             <div class="hero__visual" id="hero-visual">
               <img src="<?php echo esc_url( $attributes['image']['url'] ?? 'https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800' ); ?>" alt="<?php echo esc_attr( $attributes['image']['alt'] ?? 'Sala training Matter of Fitness con macchinari professionali e ambiente luminoso' ); ?>" loading="eager" fetchpriority="high">

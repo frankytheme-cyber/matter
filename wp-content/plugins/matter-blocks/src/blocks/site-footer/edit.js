@@ -54,292 +54,292 @@ export default function Edit( { attributes, setAttributes } ) {
                     />
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
-                    <TextControl
-                        label={ __( 'Link — Testo', 'matter-blocks' ) }
-                        value={ attributes['link']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link': { ...attributes['link'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link']?.url || '', opensInNewTab: attributes['link']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link']?.url || '',
+                            title: attributes['link']?.label || '',
+                            opensInNewTab: attributes['link']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link': {
                             url: v?.url || '',
-                            label: attributes['link']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 2 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-2']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-2': { ...attributes['link-2'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 2 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 2', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-2']?.url || '', opensInNewTab: attributes['link-2']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-2']?.url || '',
+                            title: attributes['link-2']?.label || '',
+                            opensInNewTab: attributes['link-2']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-2': {
                             url: v?.url || '',
-                            label: attributes['link-2']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 3 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-3']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-3': { ...attributes['link-3'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 3 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 3', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-3']?.url || '', opensInNewTab: attributes['link-3']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-3']?.url || '',
+                            title: attributes['link-3']?.label || '',
+                            opensInNewTab: attributes['link-3']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-3': {
                             url: v?.url || '',
-                            label: attributes['link-3']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 4 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-4']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-4': { ...attributes['link-4'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 4 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 4', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-4']?.url || '', opensInNewTab: attributes['link-4']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-4']?.url || '',
+                            title: attributes['link-4']?.label || '',
+                            opensInNewTab: attributes['link-4']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-4': {
                             url: v?.url || '',
-                            label: attributes['link-4']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 5 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-5']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-5': { ...attributes['link-5'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 5 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 5', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-5']?.url || '', opensInNewTab: attributes['link-5']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-5']?.url || '',
+                            title: attributes['link-5']?.label || '',
+                            opensInNewTab: attributes['link-5']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-5': {
                             url: v?.url || '',
-                            label: attributes['link-5']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 6 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-6']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-6': { ...attributes['link-6'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 6 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 6', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-6']?.url || '', opensInNewTab: attributes['link-6']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-6']?.url || '',
+                            title: attributes['link-6']?.label || '',
+                            opensInNewTab: attributes['link-6']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-6': {
                             url: v?.url || '',
-                            label: attributes['link-6']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 7 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-7']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-7': { ...attributes['link-7'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 7 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 7', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-7']?.url || '', opensInNewTab: attributes['link-7']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-7']?.url || '',
+                            title: attributes['link-7']?.label || '',
+                            opensInNewTab: attributes['link-7']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-7': {
                             url: v?.url || '',
-                            label: attributes['link-7']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 8 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-8']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-8': { ...attributes['link-8'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 8 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 8', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-8']?.url || '', opensInNewTab: attributes['link-8']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-8']?.url || '',
+                            title: attributes['link-8']?.label || '',
+                            opensInNewTab: attributes['link-8']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-8': {
                             url: v?.url || '',
-                            label: attributes['link-8']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 9 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-9']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-9': { ...attributes['link-9'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 9 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 9', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-9']?.url || '', opensInNewTab: attributes['link-9']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-9']?.url || '',
+                            title: attributes['link-9']?.label || '',
+                            opensInNewTab: attributes['link-9']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-9': {
                             url: v?.url || '',
-                            label: attributes['link-9']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 10 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-10']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-10': { ...attributes['link-10'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 10 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 10', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-10']?.url || '', opensInNewTab: attributes['link-10']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-10']?.url || '',
+                            title: attributes['link-10']?.label || '',
+                            opensInNewTab: attributes['link-10']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-10': {
                             url: v?.url || '',
-                            label: attributes['link-10']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 11 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-11']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-11': { ...attributes['link-11'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 11 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 11', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-11']?.url || '', opensInNewTab: attributes['link-11']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-11']?.url || '',
+                            title: attributes['link-11']?.label || '',
+                            opensInNewTab: attributes['link-11']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-11': {
                             url: v?.url || '',
-                            label: attributes['link-11']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 12 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-12']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-12': { ...attributes['link-12'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 12 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 12', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-12']?.url || '', opensInNewTab: attributes['link-12']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-12']?.url || '',
+                            title: attributes['link-12']?.label || '',
+                            opensInNewTab: attributes['link-12']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-12': {
                             url: v?.url || '',
-                            label: attributes['link-12']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 13 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-13']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-13': { ...attributes['link-13'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 13 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 13', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-13']?.url || '', opensInNewTab: attributes['link-13']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-13']?.url || '',
+                            title: attributes['link-13']?.label || '',
+                            opensInNewTab: attributes['link-13']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-13': {
                             url: v?.url || '',
-                            label: attributes['link-13']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 14 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-14']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-14': { ...attributes['link-14'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 14 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 14', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-14']?.url || '', opensInNewTab: attributes['link-14']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-14']?.url || '',
+                            title: attributes['link-14']?.label || '',
+                            opensInNewTab: attributes['link-14']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-14': {
                             url: v?.url || '',
-                            label: attributes['link-14']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 15 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-15']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-15': { ...attributes['link-15'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 15 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 15', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-15']?.url || '', opensInNewTab: attributes['link-15']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-15']?.url || '',
+                            title: attributes['link-15']?.label || '',
+                            opensInNewTab: attributes['link-15']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-15': {
                             url: v?.url || '',
-                            label: attributes['link-15']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 16 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-16']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-16': { ...attributes['link-16'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 16 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 16', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-16']?.url || '', opensInNewTab: attributes['link-16']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-16']?.url || '',
+                            title: attributes['link-16']?.label || '',
+                            opensInNewTab: attributes['link-16']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-16': {
                             url: v?.url || '',
-                            label: attributes['link-16']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
-                    <TextControl
-                        label={ __( 'Link 17 — Testo', 'matter-blocks' ) }
-                        value={ attributes['link-17']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'link-17': { ...attributes['link-17'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Link 17 — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Link 17', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['link-17']?.url || '', opensInNewTab: attributes['link-17']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['link-17']?.url || '',
+                            title: attributes['link-17']?.label || '',
+                            opensInNewTab: attributes['link-17']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'link-17': {
                             url: v?.url || '',
-                            label: attributes['link-17']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />

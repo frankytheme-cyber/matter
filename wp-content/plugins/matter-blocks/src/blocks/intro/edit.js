@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, LinkControl } from '@wordpress/block-editor';
-import { PanelBody, TextareaControl, TextControl } from '@wordpress/components';
+import { PanelBody, TextareaControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
 /**
@@ -24,20 +24,20 @@ export default function Edit( { attributes, setAttributes } ) {
                     />
                 </PanelBody>
                 <PanelBody title={ __( 'Link', 'matter-blocks' ) } initialOpen={ false }>
-                    <TextControl
-                        label={ __( 'Cta — Testo', 'matter-blocks' ) }
-                        value={ attributes['cta']?.label || '' }
-                        onChange={ ( v ) => setAttributes( { 'cta': { ...attributes['cta'], label: v } } ) }
-                    />
-                    <p className="components-base-control__label">{ __( 'Cta — Link', 'matter-blocks' ) }</p>
+                    <p className="components-base-control__label">{ __( 'Cta', 'matter-blocks' ) }</p>
                     <LinkControl
-                        value={ { url: attributes['cta']?.url || '', opensInNewTab: attributes['cta']?.target === '_blank' } }
+                        value={ {
+                            url: attributes['cta']?.url || '',
+                            title: attributes['cta']?.label || '',
+                            opensInNewTab: attributes['cta']?.target === '_blank'
+                        } }
                         onChange={ ( v ) => setAttributes( { 'cta': {
                             url: v?.url || '',
-                            label: attributes['cta']?.label || '',
+                            label: v?.title || '',
                             target: v?.opensInNewTab ? '_blank' : ''
                         } } ) }
                         settings={ [ { id: 'opensInNewTab', title: __( 'Apri in una nuova scheda', 'matter-blocks' ) } ] }
+                        hasTextControl={ true }
                         forceIsEditingLink={ true }
                         hasRichPreviews={ false }
                     />
