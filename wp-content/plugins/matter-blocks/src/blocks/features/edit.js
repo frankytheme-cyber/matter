@@ -33,6 +33,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( v ) => setAttributes( { 'lead': v } ) }
                     />
                     <TextControl
+                        label={ __( 'Layout', 'matter-blocks' ) }
+                        value={ attributes['layout'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'layout': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Tile1 Icon', 'matter-blocks' ) }
                         value={ attributes['tile1-icon'] || '' }
                         onChange={ ( v ) => setAttributes( { 'tile1-icon': v } ) }

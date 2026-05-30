@@ -26,6 +26,10 @@
             "type": "string",
             "default": ""
         },
+        "layout": {
+            "type": "string",
+            "default": ""
+        },
         "tile1-icon": {
             "type": "string",
             "default": "check_circle"

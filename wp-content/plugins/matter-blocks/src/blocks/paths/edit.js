@@ -48,6 +48,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( v ) => setAttributes( { 'row1-desc': v } ) }
                     />
                     <TextControl
+                        label={ __( 'Row1 List', 'matter-blocks' ) }
+                        value={ attributes['row1-list'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row1-list': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Row2 Kicker', 'matter-blocks' ) }
                         value={ attributes['row2-kicker'] || '' }
                         onChange={ ( v ) => setAttributes( { 'row2-kicker': v } ) }
@@ -61,6 +66,31 @@ export default function Edit( { attributes, setAttributes } ) {
                         label={ __( 'Row2 Desc', 'matter-blocks' ) }
                         value={ attributes['row2-desc'] || '' }
                         onChange={ ( v ) => setAttributes( { 'row2-desc': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Row2 List', 'matter-blocks' ) }
+                        value={ attributes['row2-list'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row2-list': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Row3 Kicker', 'matter-blocks' ) }
+                        value={ attributes['row3-kicker'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row3-kicker': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Row3 Title', 'matter-blocks' ) }
+                        value={ attributes['row3-title'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row3-title': v } ) }
+                    />
+                    <TextareaControl
+                        label={ __( 'Row3 Desc', 'matter-blocks' ) }
+                        value={ attributes['row3-desc'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row3-desc': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Row3 List', 'matter-blocks' ) }
+                        value={ attributes['row3-list'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'row3-list': v } ) }
                     />
                     <TextControl
                         label={ __( 'Cta Kicker', 'matter-blocks' ) }
@@ -141,6 +171,39 @@ export default function Edit( { attributes, setAttributes } ) {
                                 help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
                                 value={ attributes['row2-img']?.alt || '' }
                                 onChange={ ( alt ) => setAttributes( { 'row2-img': { ...attributes['row2-img'], alt } } ) }
+                                __nextHasNoMarginBottom
+                            />
+                        </>
+                    ) }
+                    <p className="components-base-control__label">Row3 Img</p>
+                    { ! attributes['row3-img']?.url ? (
+                        <MediaPlaceholder
+                            onSelect={ ( m ) => setAttributes( { 'row3-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                            accept="image/*"
+                            allowedTypes={ [ 'image' ] }
+                            labels={ { title: __( 'Aggiungi immagine', 'matter-blocks' ) } }
+                        />
+                    ) : (
+                        <>
+                            <img src={ attributes['row3-img'].url } alt="" style={ { maxWidth: '100%', height: 'auto', marginTop: '8px', borderRadius: '4px' } } />
+                            <div style={ { display: 'flex', gap: '8px', marginTop: '8px' } }>
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={ ( m ) => setAttributes( { 'row3-img': { url: m.url, alt: m.alt || '', id: m.id } } ) }
+                                        allowedTypes={ [ 'image' ] }
+                                        value={ attributes['row3-img']?.id }
+                                        render={ ( { open } ) => (
+                                            <Button variant="secondary" onClick={ open }>{ __( 'Sostituisci', 'matter-blocks' ) }</Button>
+                                        ) }
+                                    />
+                                </MediaUploadCheck>
+                                <Button variant="tertiary" isDestructive onClick={ () => setAttributes( { 'row3-img': { url: '', alt: '', id: 0 } } ) }>{ __( 'Rimuovi', 'matter-blocks' ) }</Button>
+                            </div>
+                            <TextControl
+                                label={ __( 'Testo alternativo', 'matter-blocks' ) }
+                                help={ __( 'Descrizione dell\'immagine per screen reader e SEO.', 'matter-blocks' ) }
+                                value={ attributes['row3-img']?.alt || '' }
+                                onChange={ ( alt ) => setAttributes( { 'row3-img': { ...attributes['row3-img'], alt } } ) }
                                 __nextHasNoMarginBottom
                             />
                         </>

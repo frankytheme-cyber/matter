@@ -18,6 +18,14 @@
             "type": "string",
             "default": "/"
         },
+        "parent-label": {
+            "type": "string",
+            "default": ""
+        },
+        "parent-url": {
+            "type": "string",
+            "default": ""
+        },
         "current": {
             "type": "string",
             "default": "Pagina corrente"

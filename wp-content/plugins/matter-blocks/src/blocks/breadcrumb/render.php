@@ -14,6 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <li class="breadcrumb__item">
           <a class="breadcrumb__link" href="<?php echo esc_url( $attributes['home-url'] ?? '/' ); ?>">Home</a>
         </li>
+        <?php if ( ! empty( $attributes['parent-label'] ) ) : ?>
+        <li class="breadcrumb__item">
+          <a class="breadcrumb__link" href="<?php echo esc_url( $attributes['parent-url'] ?? '#' ); ?>"><?php echo esc_html( $attributes['parent-label'] ); ?></a>
+        </li>
+        <?php endif; ?>
         <li class="breadcrumb__item breadcrumb__item--current" aria-current="page"><?php echo esc_html( $attributes['current'] ?? 'Pagina corrente' ); ?></li>
       </ol>
     </nav>

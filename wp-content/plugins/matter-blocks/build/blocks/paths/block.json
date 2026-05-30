@@ -49,6 +49,10 @@
       "type": "string",
       "default": "Colloquio, anamnesi e test tecnici definiscono il punto di partenza.\n                  Il programma si aggiorna con check-in ogni quattro o sei settimane."
     },
+    "row1-list": {
+      "type": "string",
+      "default": ""
+    },
     "row2-img": {
       "type": "object",
       "default": {
@@ -68,6 +72,34 @@
     "row2-desc": {
       "type": "string",
       "default": "Posturale, post parto, condizionamento e pre-agonistico. Se serve,\n                  costruiamo un percorso dedicato."
+    },
+    "row2-list": {
+      "type": "string",
+      "default": ""
+    },
+    "row3-img": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "alt": "",
+        "id": 0
+      }
+    },
+    "row3-kicker": {
+      "type": "string",
+      "default": ""
+    },
+    "row3-title": {
+      "type": "string",
+      "default": ""
+    },
+    "row3-desc": {
+      "type": "string",
+      "default": ""
+    },
+    "row3-list": {
+      "type": "string",
+      "default": ""
     },
     "cta-kicker": {
       "type": "string",

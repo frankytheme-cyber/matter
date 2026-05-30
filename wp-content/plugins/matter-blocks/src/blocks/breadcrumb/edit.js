@@ -23,6 +23,16 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( v ) => setAttributes( { 'home-url': v } ) }
                     />
                     <TextControl
+                        label={ __( 'Parent Label', 'matter-blocks' ) }
+                        value={ attributes['parent-label'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'parent-label': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Parent Url', 'matter-blocks' ) }
+                        value={ attributes['parent-url'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'parent-url': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Current', 'matter-blocks' ) }
                         value={ attributes['current'] || '' }
                         onChange={ ( v ) => setAttributes( { 'current': v } ) }

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/cards-carousel",
+  "title": "Cards Carousel",
+  "category": "matter",
+  "description": "Carosello orizzontale di card (immagine, kicker, titolo, descrizione, link) con frecce di scorrimento. Contenuto impostato per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "I percorsi"
+    },
+    "title": {
+      "type": "string",
+      "default": "Quattro percorsi, un solo metodo"
+    },
+    "lead": {
+      "type": "string",
+      "default": ""
+    },
+    "card1-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&q=80",
+        "alt": "Programma posturale",
+        "id": 0
+      }
+    },
+    "card1-kicker": {
+      "type": "string",
+      "default": "Postura"
+    },
+    "card1-title": {
+      "type": "string",
+      "default": "Posturale"
+    },
+    "card1-desc": {
+      "type": "string",
+      "default": "Riequilibrio muscolare, mobilità articolare e correzione delle compensazioni."
+    },
+    "card1-cta": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Richiedi info",
+        "target": ""
+      }
+    },
+    "card2-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&q=80",
+        "alt": "Post parto",
+        "id": 0
+      }
+    },
+    "card2-kicker": {
+      "type": "string",
+      "default": "Donna"
+    },
+    "card2-title": {
+      "type": "string",
+      "default": "Post parto"
+    },
+    "card2-desc": {
+      "type": "string",
+      "default": "Ripresa graduale e in sicurezza dopo la gravidanza."
+    },
+    "card2-cta": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Richiedi info",
+        "target": ""
+      }
+    },
+    "card3-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80",
+        "alt": "Condizionamento fisico",
+        "id": 0
+      }
+    },
+    "card3-kicker": {
+      "type": "string",
+      "default": "Performance"
+    },
+    "card3-title": {
+      "type": "string",
+      "default": "Condizionamento fisico"
+    },
+    "card3-desc": {
+      "type": "string",
+      "default": "Lavoro su forza, resistenza e composizione corporea."
+    },
+    "card3-cta": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Richiedi info",
+        "target": ""
+      }
+    },
+    "card4-img": {
+      "type": "object",
+      "default": {
+        "url": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=900&q=80",
+        "alt": "Pre-agonistico",
+        "id": 0
+      }
+    },
+    "card4-kicker": {
+      "type": "string",
+      "default": "Atleti"
+    },
+    "card4-title": {
+      "type": "string",
+      "default": "Pre-agonistico"
+    },
+    "card4-desc": {
+      "type": "string",
+      "default": "Preparazione atletica per agonisti di sport individuali e di squadra."
+    },
+    "card4-cta": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Richiedi info",
+        "target": ""
+      }
+    }
+  }
+}

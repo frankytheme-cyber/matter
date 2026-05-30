@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/steps",
+    "title": "Steps",
+    "category": "matter",
+    "description": "Processo numerato: griglia di step (01..04) con titolo e descrizione. Contenuto impostato per istanza.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Come funziona"
+        },
+        "title": {
+            "type": "string",
+            "default": "Il percorso, passo dopo passo"
+        },
+        "lead": {
+            "type": "string",
+            "default": ""
+        },
+        "step1-title": {
+            "type": "string",
+            "default": "Prima visita"
+        },
+        "step1-desc": {
+            "type": "string",
+            "default": "Un primo incontro per conoscersi, definire obiettivi e tempi."
+        },
+        "step2-title": {
+            "type": "string",
+            "default": "Valutazione"
+        },
+        "step2-desc": {
+            "type": "string",
+            "default": "Test posturali, funzionali e di forza per identificare il punto di partenza."
+        },
+        "step3-title": {
+            "type": "string",
+            "default": "Programma"
+        },
+        "step3-desc": {
+            "type": "string",
+            "default": "Si pianificano le sessioni e si definisce il percorso a medio termine."
+        },
+        "step4-title": {
+            "type": "string",
+            "default": "Allenamento"
+        },
+        "step4-desc": {
+            "type": "string",
+            "default": "Sessioni con monitoraggio costante e aggiornamento periodico del programma."
+        }
+    }
+}
