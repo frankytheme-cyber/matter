@@ -256,6 +256,15 @@ main:focus { outline: none; }
 
 .nav-list a:hover { opacity: 0.7; }
 
+/* Voce di menu attiva (pagina corrente) — verde brand */
+.nav-list a[aria-current="page"],
+.nav-list .nav-item__trigger.is-active,
+.nav-dropdown a[aria-current="page"],
+.mobile-nav a[aria-current="page"],
+.mobile-nav__accordion.is-active > summary {
+  color: var(--color-primary);
+}
+
 /* Dropdown Servizi (desktop) */
 .nav-item--dropdown {
   position: relative;

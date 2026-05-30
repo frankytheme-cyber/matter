@@ -116,22 +116,29 @@ if ( ! class_exists( 'Matter_Nav_Walker' ) ) {
             $url          = ! empty( $item->url ) ? $item->url : '#';
             $title        = $item->title;
 
+            // Stato attivo: voce corrente (aria-current) o ramo che contiene
+            // la pagina corrente (per evidenziare il trigger del dropdown).
+            $is_current = ! empty( $item->current );
+            $is_branch  = $is_current || ! empty( $item->current_item_parent ) || ! empty( $item->current_item_ancestor );
+
             if ( 0 === $depth && $has_children ) {
                 $this->panel_id = 'nav-menu-' . (int) $item->ID . '-panel';
+                $active_class   = $is_branch ? ' is-active' : '';
                 if ( 'desktop' === $this->mode ) {
                     $output .= '<div class="nav-item--dropdown" data-nav-dropdown="">';
-                    $output .= '<button type="button" class="nav-item__trigger" aria-expanded="false" aria-controls="' . esc_attr( $this->panel_id ) . '" aria-haspopup="true">';
+                    $output .= '<button type="button" class="nav-item__trigger' . $active_class . '"' . ( $is_branch ? ' aria-current="true"' : '' ) . ' aria-expanded="false" aria-controls="' . esc_attr( $this->panel_id ) . '" aria-haspopup="true">';
                     $output .= esc_html( $title );
                     $output .= '<span class="material-symbols-rounded nav-item__caret" aria-hidden="true">expand_more</span>';
                     $output .= '</button>';
                 } else {
-                    $output .= '<details class="mobile-nav__accordion"><summary>';
+                    $output .= '<details class="mobile-nav__accordion' . $active_class . '"' . ( $is_branch ? ' open' : '' ) . '><summary>';
                     $output .= esc_html( $title );
                     $output .= '<span class="material-symbols-rounded nav-caret-rotate" aria-hidden="true">expand_more</span>';
                     $output .= '</summary>';
                 }
             } else {
-                $output .= '<a href="' . esc_url( $url ) . '">' . esc_html( $title ) . '</a>';
+                $aria_current = $is_current ? ' aria-current="page"' : '';
+                $output      .= '<a href="' . esc_url( $url ) . '"' . $aria_current . '>' . esc_html( $title ) . '</a>';
             }
         }
 
