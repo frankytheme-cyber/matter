@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/legal-page",
+    "title": "Legal Page",
+    "category": "matter",
+    "description": "Pagina testuale (.text-page): intestazione (eyebrow, titolo, intro, meta) e fino a 8 sezioni con heading e corpo HTML. Per privacy/cookie/informative.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": { "type": "string", "default": "Legal" },
+        "title": { "type": "string", "default": "Titolo informativa" },
+        "title-id": { "type": "string", "default": "text-page-title" },
+        "intro": { "type": "string", "default": "" },
+        "meta": { "type": "string", "default": "" },
+        "sec1-heading": { "type": "string", "default": "" },
+        "sec1-body": { "type": "string", "default": "" },
+        "sec2-heading": { "type": "string", "default": "" },
+        "sec2-body": { "type": "string", "default": "" },
+        "sec3-heading": { "type": "string", "default": "" },
+        "sec3-body": { "type": "string", "default": "" },
+        "sec4-heading": { "type": "string", "default": "" },
+        "sec4-body": { "type": "string", "default": "" },
+        "sec5-heading": { "type": "string", "default": "" },
+        "sec5-body": { "type": "string", "default": "" },
+        "sec6-heading": { "type": "string", "default": "" },
+        "sec6-body": { "type": "string", "default": "" },
+        "sec7-heading": { "type": "string", "default": "" },
+        "sec7-body": { "type": "string", "default": "" },
+        "sec8-heading": { "type": "string", "default": "" },
+        "sec8-body": { "type": "string", "default": "" }
+    }
+}
