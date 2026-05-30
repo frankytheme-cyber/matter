@@ -33,3 +33,19 @@
 	opacity: 1 !important;
 	transform: none !important;
 }
+
+/*
+ * Anteprime ServerSideRender (.mof-ssr-preview, classe sul wrapper del blocco
+ * nell'editor): link, bottoni, campi form e iframe non devono essere
+ * interattivi. Cliccare un link nell'editor NON deve cambiare pagina; il click
+ * "attraversa" l'elemento (pointer-events:none) e arriva al wrapper, così il
+ * blocco resta selezionabile.
+ */
+.mof-ssr-preview a,
+.mof-ssr-preview button,
+.mof-ssr-preview input,
+.mof-ssr-preview select,
+.mof-ssr-preview textarea,
+.mof-ssr-preview iframe {
+	pointer-events: none;
+}

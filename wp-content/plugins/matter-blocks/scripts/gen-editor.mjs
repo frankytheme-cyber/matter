@@ -182,7 +182,10 @@ import ServerSideRender from '@wordpress/server-side-render';
  * Generato da scripts/gen-editor.mjs — non modificare a mano.
  */
 export default function Edit( { attributes, setAttributes } ) {
-    const blockProps = useBlockProps();
+    // 'mof-ssr-preview': nell'editor disattiva l'interazione su link/form/iframe
+    // dell'anteprima ServerSideRender (vedi editor.css) → cliccare un link non
+    // naviga via, il blocco resta selezionabile.
+    const blockProps = useBlockProps( { className: 'mof-ssr-preview' } );
 
     return (
         <>
