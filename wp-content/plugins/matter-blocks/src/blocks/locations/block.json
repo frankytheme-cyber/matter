@@ -14,6 +14,10 @@
         "align": [ "wide", "full" ]
     },
     "attributes": {
+        "section-variant": {
+            "type": "string",
+            "default": "dark"
+        },
         "eyebrow": {
             "type": "string",
             "default": "Le sedi"
@@ -42,6 +46,10 @@
             "type": "string",
             "default": "Settimo di Pescantina"
         },
+        "card1-url": {
+            "type": "string",
+            "default": "/sedi/pescantina/"
+        },
         "card2-tag": {
             "type": "string",
             "default": "Verona"
@@ -57,6 +65,10 @@
         "card2-name": {
             "type": "string",
             "default": "Bovolone"
+        },
+        "card2-url": {
+            "type": "string",
+            "default": "/sedi/bovolone/"
         }
     }
 }

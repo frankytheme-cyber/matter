@@ -29,6 +29,10 @@
       "type": "string",
       "default": "Breve testo introduttivo che presenta la pagina."
     },
+    "address": {
+      "type": "string",
+      "default": ""
+    },
     "image": {
       "type": "object",
       "default": {

@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/lounge-ritual",
+    "title": "Lounge Ritual",
+    "category": "matter",
+    "description": "Slider orizzontale pinnato del rituale Matter Lounge (fino a 5 slide con immagine, numero, kicker, titolo e descrizione).",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "slide1-img": { "type": "object", "default": { "url": "https://images.pexels.com/photos/3757376/pexels-photo-3757376.jpeg?auto=compress&cs=tinysrgb&w=1800", "alt": "Armadietto privato", "id": 0 } },
+        "slide1-num": { "type": "string", "default": "01 / Cinque" },
+        "slide1-kicker": { "type": "string", "default": "Arrivi" },
+        "slide1-title": { "type": "string", "default": "Il tuo nome <em>già al suo posto.</em>" },
+        "slide1-desc": { "type": "string", "default": "Apri il tuo armadietto. Tenuta pulita, scarpe pronte, asciugamano profumato. Non hai portato niente. Non ti manca niente." },
+        "slide2-img": { "type": "object", "default": { "url": "https://images.pexels.com/photos/6456141/pexels-photo-6456141.jpeg?auto=compress&cs=tinysrgb&w=1800", "alt": "Allenamento personale", "id": 0 } },
+        "slide2-num": { "type": "string", "default": "02 / Cinque" },
+        "slide2-kicker": { "type": "string", "default": "Ti alleni" },
+        "slide2-title": { "type": "string", "default": "Sempre la <em>stessa persona</em>, accanto a te." },
+        "slide2-desc": { "type": "string", "default": "Sa come hai dormito, cosa puoi dare oggi. Ti corregge senza farti sentire correggere. Ti spinge senza farti sentire spinto. È una relazione, non una lezione." },
+        "slide3-img": { "type": "object", "default": { "url": "https://images.pexels.com/photos/7446879/pexels-photo-7446879.jpeg?auto=compress&cs=tinysrgb&w=1800", "alt": "Recupero", "id": 0 } },
+        "slide3-num": { "type": "string", "default": "03 / Cinque" },
+        "slide3-kicker": { "type": "string", "default": "Recuperi" },
+        "slide3-title": { "type": "string", "default": "Il corpo si ferma. Il <em>recupero</em> comincia." },
+        "slide3-desc": { "type": "string", "default": "Magnetoterapia, mobility, silenzio. Un'ora di allenamento, dieci minuti per rientrare. Non te ne vai stanco. Te ne vai migliore." },
+        "slide4-img": { "type": "object", "default": { "url": "https://images.pexels.com/photos/6628539/pexels-photo-6628539.jpeg?auto=compress&cs=tinysrgb&w=1800", "alt": "Beauty corner", "id": 0 } },
+        "slide4-num": { "type": "string", "default": "04 / Cinque" },
+        "slide4-kicker": { "type": "string", "default": "Ti prepari" },
+        "slide4-title": { "type": "string", "default": "Esci come da una <em>serata.</em>" },
+        "slide4-desc": { "type": "string", "default": "Accappatoio caldo, cotone egiziano. Beauty corner Dyson. Linea bagno scelta uno a uno. Pronto per qualunque cosa, anche per andare a cena." },
+        "slide5-img": { "type": "object", "default": { "url": "https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg?auto=compress&cs=tinysrgb&w=1800", "alt": "Uscita", "id": 0 } },
+        "slide5-num": { "type": "string", "default": "05 / Cinque" },
+        "slide5-kicker": { "type": "string", "default": "Esci" },
+        "slide5-title": { "type": "string", "default": "Il resto della giornata <em>ti aspetta.</em>" },
+        "slide5-desc": { "type": "string", "default": "Ordinato, profumato, libero. La borsa l'abbiamo già rimessa al suo posto. Tu hai un'altra cosa da fare: vivere." }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/contact-form",
+    "title": "Contact Form",
+    "category": "matter",
+    "description": "Modulo di contatto centrato (nome, cognome, email, telefono, sede, select configurabile, messaggio). Contenuto per istanza.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Scrivici"
+        },
+        "title": {
+            "type": "string",
+            "default": "Prenota una visita o chiedi informazioni"
+        },
+        "lead": {
+            "type": "string",
+            "default": "Risponde direttamente lo staff, entro uno o due giorni lavorativi."
+        },
+        "form-id": {
+            "type": "string",
+            "default": "contact"
+        },
+        "select-label": {
+            "type": "string",
+            "default": "Mi interessa"
+        },
+        "select-options": {
+            "type": "string",
+            "default": "Abbonamento sala\nPersonal training\nPercorsi specializzati\nProva gratuita\nAltro"
+        },
+        "submit-label": {
+            "type": "string",
+            "default": "Invia richiesta"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/lounge-invite",
+  "title": "Lounge Invite",
+  "category": "matter",
+  "description": "Invito finale su sfondo teal (Matter Lounge): intestazione e due bottoni.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Su invito"
+    },
+    "title": {
+      "type": "string",
+      "default": "Se è il <span class=\"accent\">momento giusto</span>, lo capirai parlandoci."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Non c'è un modulo, non c'è un listino esposto. Ti richiamiamo, ti raccontiamo, ti facciamo provare. Poi decidi tu."
+    },
+    "cta1": {
+      "type": "object",
+      "default": {
+        "url": "/contatti/",
+        "label": "Richiedi un colloquio",
+        "target": ""
+      }
+    },
+    "cta2": {
+      "type": "object",
+      "default": {
+        "url": "/sedi/pescantina/",
+        "label": "Visita la sede",
+        "target": ""
+      }
+    }
+  }
+}

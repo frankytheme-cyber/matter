@@ -32,6 +32,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         value={ attributes['lead'] || '' }
                         onChange={ ( v ) => setAttributes( { 'lead': v } ) }
                     />
+                    <TextControl
+                        label={ __( 'Address', 'matter-blocks' ) }
+                        value={ attributes['address'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'address': v } ) }
+                    />
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
                     <p className="components-base-control__label">Image</p>

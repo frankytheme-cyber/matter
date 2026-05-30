@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/hours",
+  "title": "Hours",
+  "category": "matter",
+  "description": "Orari di apertura: due colonne (orari + note/contatti), ciascuna con titolo e righe giorno/orario. Contenuto per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Orari"
+    },
+    "title": {
+      "type": "string",
+      "default": "Quando siamo aperti"
+    },
+    "block1-title": {
+      "type": "string",
+      "default": "Lunedì — Venerdì"
+    },
+    "block1-rows": {
+      "type": "string",
+      "default": "Lunedì - Venerdì | 06:00 - 21:30\nSabato | 09:00 - 17:00\nDomenica | 09:00 - 13:00"
+    },
+    "block2-title": {
+      "type": "string",
+      "default": "Note"
+    },
+    "block2-rows": {
+      "type": "string",
+      "default": "Apertura continuata | Senza pausa pranzo\nEmail | <a href=\"mailto:info@matteroffitness.it\">info@matteroffitness.it</a>\nTelefono | <a href=\"tel:+393471610051\">347 161 0051</a>"
+    }
+  }
+}

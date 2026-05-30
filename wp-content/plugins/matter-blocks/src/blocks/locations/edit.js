@@ -18,6 +18,11 @@ export default function Edit( { attributes, setAttributes } ) {
             <InspectorControls>
                 <PanelBody title={ __( 'Testi', 'matter-blocks' ) } initialOpen={ true }>
                     <TextControl
+                        label={ __( 'Section Variant', 'matter-blocks' ) }
+                        value={ attributes['section-variant'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'section-variant': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Eyebrow', 'matter-blocks' ) }
                         value={ attributes['eyebrow'] || '' }
                         onChange={ ( v ) => setAttributes( { 'eyebrow': v } ) }
@@ -43,6 +48,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( v ) => setAttributes( { 'card1-name': v } ) }
                     />
                     <TextControl
+                        label={ __( 'Card1 Url', 'matter-blocks' ) }
+                        value={ attributes['card1-url'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card1-url': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Card2 Tag', 'matter-blocks' ) }
                         value={ attributes['card2-tag'] || '' }
                         onChange={ ( v ) => setAttributes( { 'card2-tag': v } ) }
@@ -51,6 +61,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         label={ __( 'Card2 Name', 'matter-blocks' ) }
                         value={ attributes['card2-name'] || '' }
                         onChange={ ( v ) => setAttributes( { 'card2-name': v } ) }
+                    />
+                    <TextControl
+                        label={ __( 'Card2 Url', 'matter-blocks' ) }
+                        value={ attributes['card2-url'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'card2-url': v } ) }
                     />
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>

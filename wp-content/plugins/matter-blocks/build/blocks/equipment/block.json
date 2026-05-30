@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/equipment",
+  "title": "Equipment",
+  "category": "matter",
+  "description": "Griglia di attrezzature: ogni voce ha un'icona Material Symbols e un nome. Contenuto per istanza (una voce per riga: icona | nome).",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Servizi della sede"
+    },
+    "title": {
+      "type": "string",
+      "default": "Attrezzature disponibili"
+    },
+    "lead": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "string",
+      "default": "fitness_center | Rack squat e stacco\nfitness_center | Panca piana e inclinata\nfitness_center | Manubri 2–50 kg\ndirections_run | Tapis roulant\ndirections_bike | Bike da spinning\nrowing | Vogatore Concept2\naccessibility_new | Leg press\naccessibility_new | Lat machine\ncable | Cavi multifunzione\nlocal_drink | Bibite gratuite"
+    }
+  }
+}

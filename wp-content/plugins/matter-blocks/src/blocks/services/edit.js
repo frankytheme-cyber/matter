@@ -62,6 +62,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         value={ attributes['card2-desc'] || '' }
                         onChange={ ( v ) => setAttributes( { 'card2-desc': v } ) }
                     />
+                    <TextareaControl
+                        label={ __( 'Footer Lead', 'matter-blocks' ) }
+                        value={ attributes['footer-lead'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'footer-lead': v } ) }
+                    />
                 </PanelBody>
                 <PanelBody title={ __( 'Immagini', 'matter-blocks' ) } initialOpen={ false }>
                     <p className="components-base-control__label">Card1 Img</p>

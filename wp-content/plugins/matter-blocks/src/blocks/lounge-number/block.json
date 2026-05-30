@@ -1,0 +1,34 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/lounge-number",
+    "title": "Lounge Number",
+    "category": "matter",
+    "description": "Blocco numero grande con conteggio animato (Matter Lounge): etichetta sopra, numero, etichetta sotto e sottotitolo.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "top-label": {
+            "type": "string",
+            "default": "Numero chiuso"
+        },
+        "number": {
+            "type": "string",
+            "default": "20"
+        },
+        "bottom-label": {
+            "type": "string",
+            "default": "Posti, per sede"
+        },
+        "sub": {
+            "type": "string",
+            "default": "Solo venti persone. Perché <span class=\"accent\">seguire bene</span> richiede di non seguire troppi."
+        }
+    }
+}

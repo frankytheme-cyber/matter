@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "matter/lounge-senses",
+    "title": "Lounge Senses",
+    "category": "matter",
+    "description": "Carosello dettagli Matter Lounge (.lng-senses-slider) con frecce; fino a 6 voci con titolo e descrizione.",
+    "textdomain": "matter-blocks",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "eyebrow": { "type": "string", "default": "I dettagli" },
+        "title": { "type": "string", "default": "Perché è diverso da una palestra <span class=\"accent\">tradizionale</span>" },
+        "sense1-title": { "type": "string", "default": "Accesso <span class=\"accent\">riservato</span>" },
+        "sense1-desc": { "type": "string", "default": "Capienza limitata e prenotazioni controllate: ti alleni senza attese, senza confusione e con i tuoi tempi." },
+        "sense2-title": { "type": "string", "default": "Coach <span class=\"accent\">dedicato</span>" },
+        "sense2-desc": { "type": "string", "default": "Un unico riferimento che segue il tuo percorso, aggiorna il programma e adatta il lavoro al tuo stato reale." },
+        "sense3-title": { "type": "string", "default": "Progressi <span class=\"accent\">misurabili</span>" },
+        "sense3-desc": { "type": "string", "default": "Valutazioni periodiche su forza, mobilità e composizione corporea: meno improvvisazione, più risultati concreti." },
+        "sense4-title": { "type": "string", "default": "Recupero <span class=\"accent\">guidato</span>" },
+        "sense4-desc": { "type": "string", "default": "Mobility e protocolli post-allenamento strutturati per ridurre l'affaticamento e sostenere la continuità." },
+        "sense5-title": { "type": "string", "default": "Esperienza <span class=\"accent\">costante</span>" },
+        "sense5-desc": { "type": "string", "default": "Standard operativi chiari in ogni sessione: arrivi, ti alleni e concludi sempre con la stessa qualità." },
+        "sense6-title": { "type": "string", "default": "" },
+        "sense6-desc": { "type": "string", "default": "" }
+    }
+}

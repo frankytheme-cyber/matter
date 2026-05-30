@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/lounge-hero",
+  "title": "Lounge Hero",
+  "category": "matter",
+  "description": "Hero immersivo Matter Lounge: titolo a parole, lead, immagine e testo whisper con reveal. Contenuto per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Matter Lounge"
+    },
+    "title": {
+      "type": "string",
+      "default": "Il tempo che"
+    },
+    "accent-word": {
+      "type": "string",
+      "default": "meriti."
+    },
+    "lead": {
+      "type": "string",
+      "default": "Uno spazio raro, riservato a poche persone. Dove tutto è già pronto. Dove non serve aspettare. Dove sei a casa, prima ancora di entrare."
+    },
+    "image": {
+      "type": "object",
+      "default": {
+        "url": "https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1800",
+        "alt": "",
+        "id": 0
+      }
+    },
+    "whisper": {
+      "type": "string",
+      "default": "Ti diciamo subito una cosa. <span class=\"accent\">Matter Lounge non è una palestra di lusso.</span> È un piccolo posto, fatto per pochi, dove ogni dettaglio esiste per un solo motivo: farti sentire al centro. Niente attese. Niente borsa. Niente compromessi. Solo tu, il tuo tempo, e qualcuno che ti conosce per nome."
+    }
+  }
+}

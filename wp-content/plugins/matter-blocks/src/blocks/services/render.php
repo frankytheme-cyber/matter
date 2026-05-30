@@ -51,4 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
               </div>
             </article>
           </div>
+          <?php if ( '' !== trim( (string) ( $attributes['footer-lead'] ?? '' ) ) ) : ?>
+          <p class="section-lead u-lead-centered-narrow" data-reveal="" data-reveal-delay="200"><?php echo wp_kses_post( $attributes['footer-lead'] ); ?></p>
+          <?php endif; ?>
         </section>

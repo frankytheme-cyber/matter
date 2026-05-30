@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "matter/map",
+  "title": "Map",
+  "category": "matter",
+  "description": "Sezione mappa sede: embed Google Maps + pannello info (indirizzo, telefono, email, orari, link mappa). Contenuto per istanza.",
+  "textdomain": "matter-blocks",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Dove siamo"
+    },
+    "title": {
+      "type": "string",
+      "default": "Trovaci sulla mappa"
+    },
+    "embed-url": {
+      "type": "string",
+      "default": "https://www.google.com/maps?q=Via+Enzo+Natta+38%2C+Settimo+di+Pescantina+VR+Italia&hl=it&z=16&output=embed"
+    },
+    "info-kicker": {
+      "type": "string",
+      "default": "Sede"
+    },
+    "info-title": {
+      "type": "string",
+      "default": "Settimo di Pescantina"
+    },
+    "address": {
+      "type": "string",
+      "default": "Via Enzo Natta, 38, 37026 Settimo (VR)"
+    },
+    "phone": {
+      "type": "string",
+      "default": "+39 347 161 0051"
+    },
+    "email": {
+      "type": "string",
+      "default": "info@matteroffitness.it"
+    },
+    "schedule": {
+      "type": "string",
+      "default": "Lun-Ven | 06:00-21:30\nSabato | 09:00-17:00\nDomenica | 09:00-13:00"
+    },
+    "maps-url": {
+      "type": "string",
+      "default": "https://www.google.com/maps/search/?api=1&query=Via+Enzo+Natta+38%2C+Settimo+di+Pescantina+VR+Italia"
+    },
+    "maps-label": {
+      "type": "string",
+      "default": "Apri in Google Maps"
+    }
+  }
+}
