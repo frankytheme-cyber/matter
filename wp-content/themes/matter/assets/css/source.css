@@ -1719,6 +1719,25 @@ select.form-input {
 }
 @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
 
+/* Contact Form 7 dentro .contact-form: i field-tag CF7 sono avvolti in
+   .wpcf7-form-control-wrap (inline di default) → forziamo block così gli input
+   .form-input riempiono il .form-group. Più stile minimale per tip e risposta. */
+.contact-form .wpcf7-form-control-wrap { display: block; }
+.contact-form .wpcf7-not-valid-tip {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: #b00020;
+  margin-top: 6px;
+}
+.contact-form .wpcf7-response-output {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  border-radius: 12px;
+  margin: 4px 0 0;
+  padding: 12px 16px;
+}
+.contact-form .wpcf7-spinner { margin-left: 12px; }
+
 .section--tint {
   background: var(--color-bg-tint);
 }

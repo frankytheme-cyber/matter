@@ -36,6 +36,11 @@ export default function Edit( { attributes, setAttributes } ) {
                         onChange={ ( v ) => setAttributes( { 'lead': v } ) }
                     />
                     <TextControl
+                        label={ __( 'Cf7 Id', 'matter-blocks' ) }
+                        value={ attributes['cf7-id'] || '' }
+                        onChange={ ( v ) => setAttributes( { 'cf7-id': v } ) }
+                    />
+                    <TextControl
                         label={ __( 'Form Id', 'matter-blocks' ) }
                         value={ attributes['form-id'] || '' }
                         onChange={ ( v ) => setAttributes( { 'form-id': v } ) }

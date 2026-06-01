@@ -18,6 +18,11 @@ $mof_fid    = sanitize_html_class( $attributes['form-id'] ?? 'contact' );
 $mof_lead   = $attributes['lead'] ?? '';
 $mof_sel    = $attributes['select-label'] ?? 'Mi interessa';
 $mof_submit = $attributes['submit-label'] ?? 'Invia richiesta';
+
+// Se è impostato un form Contact Form 7 (cf7-id) e il plugin è attivo, il form
+// viene reso da CF7; altrimenti fallback al mockup statico (action="#").
+$mof_cf7        = trim( (string) ( $attributes['cf7-id'] ?? '' ) );
+$mof_use_cf7    = ( '' !== $mof_cf7 ) && function_exists( 'wpcf7_contact_form' );
 ?>
 <section <?php echo wp_kses_data( get_block_wrapper_attributes( array( 'class' => 'section' ) ) ); ?>>
         <header class="section-head" data-reveal="">
@@ -27,6 +32,17 @@ $mof_submit = $attributes['submit-label'] ?? 'Invia richiesta';
           <p class="section-lead"><?php echo wp_kses_post( $mof_lead ); ?></p>
           <?php endif; ?>
         </header>
+        <?php if ( $mof_use_cf7 ) : ?>
+        <div class="contact-form-cf7" data-reveal="">
+          <?php
+          // Flag scoped: i filtri in matter-blocks.php aggiungono le classi del
+          // tema al <form> CF7 e disattivano l'autop solo qui.
+          $GLOBALS['mof_cf7_in_block'] = true;
+          echo do_shortcode( '[contact-form-7 id="' . absint( $mof_cf7 ) . '"]' );
+          $GLOBALS['mof_cf7_in_block'] = false;
+          ?>
+        </div>
+        <?php else : ?>
         <form class="contact-form contact-form--centered" data-reveal="" action="#" method="post" aria-describedby="form-help-<?php echo esc_attr( $mof_fid ); ?>">
           <p id="form-help-<?php echo esc_attr( $mof_fid ); ?>" class="sr-only">I campi contrassegnati con asterisco sono obbligatori.</p>
           <div class="form-row">
@@ -77,4 +93,5 @@ $mof_submit = $attributes['submit-label'] ?? 'Invia richiesta';
           </div>
           <button class="btn-pill btn-pill--dark u-btn-full" type="submit"><?php echo esc_html( $mof_submit ); ?></button>
         </form>
+        <?php endif; ?>
       </section>

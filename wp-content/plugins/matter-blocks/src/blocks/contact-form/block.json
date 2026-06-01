@@ -26,6 +26,10 @@
             "type": "string",
             "default": "Risponde direttamente lo staff, entro uno o due giorni lavorativi."
         },
+        "cf7-id": {
+            "type": "string",
+            "default": ""
+        },
         "form-id": {
             "type": "string",
             "default": "contact"

@@ -70,6 +70,26 @@ add_action( 'after_setup_theme', function () {
 } );
 
 /**
+ * Integrazione Contact Form 7 nel blocco matter/contact-form.
+ *
+ * Il blocco, quando ha l'attributo `cf7-id`, renderizza un form CF7 via
+ * shortcode (vedi contact-form/render.php). Questi due filtri agiscono SOLO
+ * mentre il blocco sta renderizzando il form (flag $GLOBALS['mof_cf7_in_block']):
+ *  - aggiungono al <form> di CF7 le classi del tema (.contact-form--centered);
+ *  - disattivano l'autop di CF7, che altrimenti inserirebbe <p>/<br> spuri nel
+ *    markup BEM (.form-row/.form-group) scritto a mano nel template del form.
+ */
+add_filter( 'wpcf7_form_class_attr', function ( $class ) {
+    if ( ! empty( $GLOBALS['mof_cf7_in_block'] ) ) {
+        $class .= ' contact-form contact-form--centered';
+    }
+    return $class;
+} );
+add_filter( 'wpcf7_autop_or_not', function ( $enabled ) {
+    return empty( $GLOBALS['mof_cf7_in_block'] ) ? $enabled : false;
+} );
+
+/**
  * Walker che riproduce il markup del menu della demo, senza <ul>/<li>:
  *  - desktop: voce semplice = <a>; voce con figli = .nav-item--dropdown >
  *    button.nav-item__trigger + div.nav-dropdown (gestito da main.js via classi);
