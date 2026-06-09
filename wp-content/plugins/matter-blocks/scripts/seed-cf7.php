@@ -2,13 +2,15 @@
 /**
  * Crea/aggiorna 3 form Contact Form 7 (Pescantina, Bovolone, Contatti) con il
  * markup BEM del tema, e li collega ai blocchi matter/contact-form nelle pagine
- * 35/36/37 impostando l'attributo cf7-id. Idempotente sui titoli.
+ * corrispondenti (risolte per slug) impostando l'attributo cf7-id. Idempotente
+ * sui titoli dei form.
+ *
+ * Doppio uso:
+ *  - via WP-CLI standalone:  wp eval-file .../scripts/seed-cf7.php
+ *  - come funzione richiamata dal seeder: mof_seed_cf7()
+ *
+ * La logica vive in mof_seed_cf7(); l'esecuzione standalone la invoca in coda.
  */
-
-if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
-    echo "CF7 non disponibile\n";
-    return;
-}
 
 /** Template form CF7 con classi del tema. $select = 'interesse'|'oggetto'. */
 function mof_cf7_form_template( $select_name, $select_label, array $select_opts ) {
@@ -86,56 +88,97 @@ function mof_cf7_upsert( $title, $form, $recipient, $select_name, $select_label 
     return $cf->save();
 }
 
-$select_pesc = array( 'Abbonamento sala', 'Personal training', 'Percorsi specializzati', 'Prova gratuita', 'Altro' );
-$select_ogg  = array( 'Informazioni generali', 'Stampa e media', 'Partnership', 'Candidatura', 'Altro' );
-
-$forms = array(
-    35 => array(
-        'title'     => 'Contatti — Settimo di Pescantina',
-        'recipient' => 'info@matteroffitness.it',
-        'select'    => array( 'interesse', 'Mi interessa', $select_pesc ),
-    ),
-    36 => array(
-        'title'     => 'Contatti — Bovolone',
-        'recipient' => 'matterbovolone@gmail.com',
-        'select'    => array( 'interesse', 'Mi interessa', $select_pesc ),
-    ),
-    37 => array(
-        'title'     => 'Contatti — Richieste generali',
-        'recipient' => 'info@matteroffitness.it',
-        'select'    => array( 'oggetto', 'Oggetto', $select_ogg ),
-    ),
-);
-
-foreach ( $forms as $page_id => $f ) {
-    list( $sname, $slabel, $sopts ) = $f['select'];
-    $tpl = mof_cf7_form_template( $sname, $slabel, $sopts );
-    $cf7_id = mof_cf7_upsert( $f['title'], $tpl, $f['recipient'], $sname, $slabel );
-    echo "Form CF7 \"{$f['title']}\" => id {$cf7_id} (pagina {$page_id})\n";
-
-    // collega l'ID al blocco matter/contact-form nel post_content della pagina
-    $post = get_post( $page_id );
-    if ( ! $post ) {
-        echo "  ! pagina {$page_id} non trovata\n";
-        continue;
-    }
-    $content = $post->post_content;
-    // inserisci/aggiorna "cf7-id":<id> nel primo blocco matter/contact-form
-    if ( preg_match( '/<!--\s*wp:matter\/contact-form\s*(\{.*?\})?\s*\/-->/s', $content, $m ) ) {
-        $attrs = array();
-        if ( ! empty( $m[1] ) ) {
-            $attrs = json_decode( $m[1], true );
-            if ( ! is_array( $attrs ) ) {
-                $attrs = array();
-            }
+/**
+ * Crea/aggiorna i 3 form CF7 e li collega ai blocchi matter/contact-form delle
+ * pagine sedi/contatti (risolte per slug, così funziona con qualsiasi ID).
+ *
+ * @return bool true se CF7 è attivo ed il seeding è stato eseguito; false se CF7 assente.
+ */
+function mof_seed_cf7() {
+    if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
+        if ( function_exists( 'mof_seed_log' ) ) {
+            mof_seed_log( 'CF7 non disponibile: form di contatto non creati.', 'warning' );
+        } else {
+            echo "CF7 non disponibile\n";
         }
-        $attrs['cf7-id'] = (string) $cf7_id;
-        $new_block = '<!-- wp:matter/contact-form ' . wp_json_encode( $attrs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . ' /-->';
-        $new_content = str_replace( $m[0], $new_block, $content );
-        wp_update_post( array( 'ID' => $page_id, 'post_content' => $new_content ) );
-        echo "  ok: cf7-id={$cf7_id} collegato al blocco (pagina {$page_id})\n";
+        return false;
+    }
+
+    $select_pesc = array( 'Abbonamento sala', 'Personal training', 'Percorsi specializzati', 'Prova gratuita', 'Altro' );
+    $select_ogg  = array( 'Informazioni generali', 'Stampa e media', 'Partnership', 'Candidatura', 'Altro' );
+
+    // Mappa per slug di pagina → definizione form (portabile, niente ID cablati).
+    $forms = array(
+        'pescantina' => array(
+            'title'     => 'Contatti — Settimo di Pescantina',
+            'recipient' => 'info@matteroffitness.it',
+            'select'    => array( 'interesse', 'Mi interessa', $select_pesc ),
+        ),
+        'bovolone' => array(
+            'title'     => 'Contatti — Bovolone',
+            'recipient' => 'matterbovolone@gmail.com',
+            'select'    => array( 'interesse', 'Mi interessa', $select_pesc ),
+        ),
+        'contatti' => array(
+            'title'     => 'Contatti — Richieste generali',
+            'recipient' => 'info@matteroffitness.it',
+            'select'    => array( 'oggetto', 'Oggetto', $select_ogg ),
+        ),
+    );
+
+    foreach ( $forms as $slug => $f ) {
+        list( $sname, $slabel, $sopts ) = $f['select'];
+        $tpl    = mof_cf7_form_template( $sname, $slabel, $sopts );
+        $cf7_id = mof_cf7_upsert( $f['title'], $tpl, $f['recipient'], $sname, $slabel );
+
+        // Risolve la pagina per slug (le figlie hanno slug univoco: pescantina/bovolone).
+        $found = get_posts( array(
+            'post_type'      => 'page',
+            'name'           => $slug,
+            'posts_per_page' => 1,
+            'post_status'    => 'any',
+        ) );
+        $post = $found ? $found[0] : null;
+        if ( ! $post ) {
+            mof_cf7_echo( "Form CF7 \"{$f['title']}\" => id {$cf7_id} — ! pagina '{$slug}' non trovata" );
+            continue;
+        }
+        $page_id = $post->ID;
+        mof_cf7_echo( "Form CF7 \"{$f['title']}\" => id {$cf7_id} (pagina {$slug}/{$page_id})" );
+
+        $content = $post->post_content;
+        // inserisci/aggiorna "cf7-id":<id> nel primo blocco matter/contact-form
+        if ( preg_match( '/<!--\s*wp:matter\/contact-form\s*(\{.*?\})?\s*\/-->/s', $content, $m ) ) {
+            $attrs = array();
+            if ( ! empty( $m[1] ) ) {
+                $attrs = json_decode( $m[1], true );
+                if ( ! is_array( $attrs ) ) {
+                    $attrs = array();
+                }
+            }
+            $attrs['cf7-id'] = (string) $cf7_id;
+            $new_block   = '<!-- wp:matter/contact-form ' . wp_json_encode( $attrs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . ' /-->';
+            $new_content = str_replace( $m[0], $new_block, $content );
+            wp_update_post( array( 'ID' => $page_id, 'post_content' => $new_content ) );
+            mof_cf7_echo( "  ok: cf7-id={$cf7_id} collegato al blocco (pagina {$slug})" );
+        } else {
+            mof_cf7_echo( "  ! blocco matter/contact-form non trovato nella pagina {$slug}" );
+        }
+    }
+    return true;
+}
+
+/** Output unificato: usa mof_seed_log (WP-CLI/error_log) se presente, altrimenti echo. */
+function mof_cf7_echo( $msg ) {
+    if ( function_exists( 'mof_seed_log' ) ) {
+        mof_seed_log( $msg );
     } else {
-        echo "  ! blocco matter/contact-form non trovato nella pagina {$page_id}\n";
+        echo $msg . "\n";
     }
 }
-echo "FATTO\n";
+
+// Esecuzione standalone (wp eval-file): se non incluso da un seeder, lancia subito.
+if ( ! defined( 'MOF_SEED_CF7_AS_LIB' ) ) {
+    mof_seed_cf7();
+    echo "FATTO\n";
+}

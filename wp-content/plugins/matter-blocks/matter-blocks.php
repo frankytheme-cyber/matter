@@ -13,6 +13,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Seeder dei contenuti del tema (pagine, menu, front page, form CF7).
+ * Carica la libreria e aggancia i trigger di seeding "di fabbrica".
+ */
+require_once __DIR__ . '/includes/class-matter-seeder.php';
+
+// Seeding one-shot quando si attiva il tema o (questo) plugin.
+add_action( 'after_switch_theme', 'matter_maybe_seed' );
+register_activation_hook( __FILE__, 'matter_maybe_seed' );
+
+// Comando WP-CLI: `wp matter seed [--force]` per ri-eseguire/forzare il seeding.
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+    WP_CLI::add_command( 'matter seed', function ( $args, $assoc_args ) {
+        $force = isset( $assoc_args['force'] );
+        matter_seed_content( $force );
+        update_option( 'matter_seed_done', 1 );
+    } );
+}
+
+/**
  * Registra ogni blocco trovato in build/blocks/*.
  */
 add_action( 'init', function () {

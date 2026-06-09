@@ -1,0 +1,112 @@
+<?php
+/**
+ * Manifest pagine del tema Matter of Fitness — generato da scripts/export-content.php.
+ * Consumato da includes/class-matter-seeder.php. Non modificare a mano salvo necessità.
+ */
+
+return array(
+    'home' => array(
+        'slug' => 'home',
+        'title' => 'Home',
+        'parent_slug' => '',
+        'template' => '',
+        'menu_order' => 0,
+        'front_page' => true,
+    ),
+    'chi-siamo' => array(
+        'slug' => 'chi-siamo',
+        'title' => 'Chi siamo',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'servizi' => array(
+        'slug' => 'servizi',
+        'title' => 'Servizi',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'personal-training' => array(
+        'slug' => 'personal-training',
+        'title' => 'Personal training',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'percorsi-specializzati' => array(
+        'slug' => 'percorsi-specializzati',
+        'title' => 'Percorsi specializzati',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'sedi' => array(
+        'slug' => 'sedi',
+        'title' => 'Sedi',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'pescantina' => array(
+        'slug' => 'pescantina',
+        'title' => 'Settimo di Pescantina',
+        'parent_slug' => 'sedi',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'bovolone' => array(
+        'slug' => 'bovolone',
+        'title' => 'Bovolone',
+        'parent_slug' => 'sedi',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'contatti' => array(
+        'slug' => 'contatti',
+        'title' => 'Contatti',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'matter-lounge' => array(
+        'slug' => 'matter-lounge',
+        'title' => 'Matter Lounge',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'privacy-policy' => array(
+        'slug' => 'privacy-policy',
+        'title' => 'Privacy Policy',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'cookie-policy' => array(
+        'slug' => 'cookie-policy',
+        'title' => 'Cookie Policy',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+    'self-guarding' => array(
+        'slug' => 'self-guarding',
+        'title' => 'Self Guarding',
+        'parent_slug' => '',
+        'template' => 'about',
+        'menu_order' => 0,
+        'front_page' => false,
+    ),
+);
